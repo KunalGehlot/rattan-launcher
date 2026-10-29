@@ -225,7 +225,7 @@ def painting(art, rect, light, rng):
     return srgb8(pixels * (shade * lit)[..., None], rng)
 
 
-def render(picks, style, sheet):
+def render(picks, style, sheet, order):
     rng = np.random.default_rng(7)
     OUT.mkdir(parents=True, exist_ok=True)
     light = gallery_light()
@@ -248,13 +248,22 @@ def render(picks, style, sheet):
                        {"file": f"{pick['id']}.jpg", "rect": list(rect), "mat": mat, "ink": ink})
         thumbs.append(canvas.resize((384, 216), Image.LANCZOS))
         print(f"{pick['id']:52s} {mat:9s} {rect}")
-    (OUT / "catalog.json").write_text(json.dumps({"frame": style, "works": catalog}, ensure_ascii=False, indent=1))
+    works = merged(catalog, order)
+    (OUT / "catalog.json").write_text(json.dumps({"frame": style, "works": works}, ensure_ascii=False, indent=1))
     if sheet:
         for start in range(0, len(thumbs), 30):
             page = Image.new("RGB", (384 * 5, 216 * 6), (12, 12, 12))
             for i, thumb in enumerate(thumbs[start:start + 30]):
                 page.paste(thumb, (384 * (i % 5), 216 * (i // 5)))
             page.save(OUT / f"sheet-{start // 30 + 1}.jpg", quality=85)
+
+
+def merged(fresh, order):
+    """The new entries over the catalog already there, in picks.json order, so --only keeps the rest."""
+    path = OUT / "catalog.json"
+    known = {w["id"]: w for w in json.loads(path.read_text())["works"]} if path.exists() else {}
+    known.update({w["id"]: w for w in fresh})
+    return [known[i] for i in order if i in known and (OUT / known[i]["file"]).exists()]
 
 
 def main():
@@ -264,11 +273,12 @@ def main():
     parser.add_argument("--sheet", action="store_true", help="also write contact sheets")
     args = parser.parse_args()
     picks = [p for p in json.loads(PICKS.read_text()) if not p.get("skip")]
+    order = [p["id"] for p in picks]
     if args.only:
         wanted = set(args.only.split(","))
         picks = [p for p in picks if p["id"] in wanted]
     picks = [p for p in picks if (MASTERS / f"{p['id']}.jpg").exists()]
-    render(picks, args.frame, args.sheet)
+    render(picks, args.frame, args.sheet, order)
 
 
 if __name__ == "__main__":

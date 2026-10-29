@@ -13,7 +13,8 @@ adb -s "$TV" shell "ls -d $DIR" >/dev/null 2>&1 || {
     exit 1
 }
 LIST=$(mktemp)
-ls | grep -E '\.jpg$' | grep -v '^sheet-' > "$LIST"
+# The catalog names every picture; stray files (contact sheets, sync copies) never travel.
+python3 -I -c 'import json; print("\n".join(w["file"] for w in json.load(open("catalog.json"))["works"]))' > "$LIST"
 # shellcheck disable=SC2046
 adb -s "$TV" push --sync $(cat "$LIST") "$DIR/" | tail -1
 adb -s "$TV" shell "ls $DIR" | tr -d '\r' | grep -E '\.jpg$' | grep -vxF -f "$LIST" |

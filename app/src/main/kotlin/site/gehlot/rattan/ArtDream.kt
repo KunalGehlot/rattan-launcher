@@ -181,6 +181,7 @@ class Gallery(context: Context) : FrameLayout(context) {
 
     fun stop() {
         running = false
+        generation++ // a decode still running when Art Mode stops must not land after a restart
         main.removeCallbacksAndMessages(null)
     }
 
