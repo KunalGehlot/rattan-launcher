@@ -8,3 +8,5 @@ signing/
 *.iml
 .DS_Store
 .kotlin/
+/art/
+__pycache__/

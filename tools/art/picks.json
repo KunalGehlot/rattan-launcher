@@ -1,0 +1,1306 @@
+[
+ {
+  "id": "van-gogh-the-bedroom",
+  "artist": "Vincent van Gogh",
+  "title": "The Bedroom",
+  "date": "1889",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/28560",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/6644829f-f292-c5c4-a73c-0356a6fdbf0d/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "caillebotte-paris-street-rainy-day",
+  "artist": "Gustave Caillebotte",
+  "title": "Paris Street; Rainy Day",
+  "date": "1877",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/20684",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/f8fd76e9-c396-5678-36ed-6a348c904d27/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "seurat-a-sunday-on-la-grande",
+  "artist": "Georges Seurat",
+  "title": "A Sunday on La Grande Jatte",
+  "date": "1884–86",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/27992",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "hokusai-under-the-wave-off-kanagawa",
+  "artist": "Katsushika Hokusai",
+  "title": "Under the Wave off Kanagawa (The Great Wave)",
+  "date": "c. 1830–32",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/89503",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/2fa24f36-cc26-41b6-4b49-12bba2a6c1c8/full/3000,/0/default.jpg",
+  "trim": 0.03
+ },
+ {
+  "id": "monet-stacks-of-wheat-end-of",
+  "artist": "Claude Monet",
+  "title": "Stacks of Wheat (End of Summer)",
+  "date": "1890–91",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/64818",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/a38e2828-ec6f-ece1-a30f-70243449197b/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "monet-arrival-of-the-normandy-train",
+  "artist": "Claude Monet",
+  "title": "Arrival of the Normandy Train, Gare Saint-Lazare",
+  "date": "1877",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/16571",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/0f1cc0e0-e42e-be16-3f71-2022da38cb93/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "cezanne-the-basket-of-apples",
+  "artist": "Paul Cézanne",
+  "title": "The Basket of Apples",
+  "date": "c. 1893",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/111436",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/52ac8996-3460-cf71-cb42-5c4d0aa29b74/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "monet-the-beach-at-sainte-adresse",
+  "artist": "Claude Monet",
+  "title": "The Beach at Sainte-Adresse",
+  "date": "1867",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/14598",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/95be2572-b53d-8e7b-abc9-10eb48d4fa5d/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "cezanne-the-bay-of-marseille-seen",
+  "artist": "Paul Cézanne",
+  "title": "The Bay of Marseille, Seen from L’Estaque",
+  "date": "c. 1885",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/16487",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/d4ca6321-8656-3d3f-a362-2ee297b2b813/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "homer-the-herring-net",
+  "artist": "Winslow Homer",
+  "title": "The Herring Net",
+  "date": "1885",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/25865",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/5dca7347-c6dc-24dd-d073-d705b9cdc575/full/3000,/0/default.jpg",
+  "mat": "ink"
+ },
+ {
+  "id": "mitsuoki-autumn-maples-with-poem-slips",
+  "artist": "Tosa Mitsuoki",
+  "title": "Autumn Maples with Poem Slips",
+  "date": "c. 1675",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/127644",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/86e919b9-d366-b3ca-d26f-4c16880474a3/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "church-view-of-cotopaxi",
+  "artist": "Frederic Edwin Church",
+  "title": "View of Cotopaxi",
+  "date": "1857",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/76571",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/33fc29fc-097b-576b-c9e6-c3352d9d3f15/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "turner-fishing-boats-with-hucksters-bargaining",
+  "artist": "J. M. W. Turner",
+  "title": "Fishing Boats with Hucksters Bargaining for Fish",
+  "date": "1837–38",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/4796",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/8641479e-c93e-f1a8-9925-19be061706da/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "hobbema-the-watermill-with-the-great",
+  "artist": "Meindert Hobbema",
+  "title": "The Watermill with the Great Red Roof",
+  "date": "c. 1665",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/869",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/237c25a2-6051-a8e7-1610-a01938d4deab/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "heade-magnolias-on-light-blue-velvet",
+  "artist": "Martin Johnson Heade",
+  "title": "Magnolias on Light Blue Velvet Cloth",
+  "date": "1885–95",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/100829",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/0729fbba-51e3-a2d7-6d4d-61c2be62af3f/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "chase-a-city-park",
+  "artist": "William Merritt Chase",
+  "title": "A City Park",
+  "date": "c. 1887",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/28849",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/72a76270-d6f4-e744-d47b-307873a8e8ff/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "gauguin-arlesiennes-mistral",
+  "artist": "Paul Gauguin",
+  "title": "Arlésiennes (Mistral)",
+  "date": "1888",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/19339",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/ae6ac285-6887-dd76-4570-d379c786dfae/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "vuillard-landscape-window-overlooking-the-woods",
+  "artist": "Édouard Vuillard",
+  "title": "Landscape: Window Overlooking the Woods",
+  "date": "1899",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/109926",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/a1dc6109-6e0c-7801-ebe8-8c95fec2c4e4/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "bellows-love-of-winter",
+  "artist": "George Bellows",
+  "title": "Love of Winter",
+  "date": "1914",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/109780",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/18ab0c35-e35c-0216-9afd-f93357920db1/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "twachtman-icebound",
+  "artist": "John Henry Twachtman",
+  "title": "Icebound",
+  "date": "c. 1889",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/72801",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/3ae75415-0551-ae17-c478-3b8687a6f246/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "constable-stoke-by-nayland",
+  "artist": "John Constable",
+  "title": "Stoke-by-Nayland",
+  "date": "1836",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/4758",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/400ce9e8-2f67-44e2-dd68-e6c98880d27f/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "guardi-the-garden-of-palazzo-contarini",
+  "artist": "Francesco Guardi",
+  "title": "The Garden of Palazzo Contarini dal Zaffo",
+  "date": "late 1770s",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/111610",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/b553d1fe-da1f-dd9e-ff0f-c36fc22aac0e/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "toulouse-lautrec-equestrienne-at-the-cirque",
+  "artist": "Henri de Toulouse-Lautrec",
+  "title": "Equestrienne (At the Cirque Fernando)",
+  "date": "1887–88",
+  "museum": "The Art Institute of Chicago",
+  "page": "https://www.artic.edu/artworks/16146",
+  "licence": "CC0 (public domain)",
+  "image": "https://www.artic.edu/iiif/2/65db9e21-83c3-1cc6-7240-1e1996d87f52/full/3000,/0/default.jpg"
+ },
+ {
+  "id": "church-twilight-in-the-wilderness",
+  "artist": "Frederic Edwin Church",
+  "title": "Twilight in the Wilderness",
+  "date": "1860",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1965.233",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1965.233/1965.233_print.jpg",
+  "trim": {
+   "top": 0.004
+  },
+  "mat": "ink"
+ },
+ {
+  "id": "turner-the-burning-of-the-houses",
+  "artist": "J. M. W. Turner",
+  "title": "The Burning of the Houses of Lords and Commons",
+  "date": "1835",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1942.647",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1942.647/1942.647_print.jpg"
+ },
+ {
+  "id": "van-gogh-the-large-plane-trees-road",
+  "artist": "Vincent van Gogh",
+  "title": "The Large Plane Trees (Road Menders at Saint-Rémy)",
+  "date": "1889",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1947.209",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1947.209/1947.209_print.jpg"
+ },
+ {
+  "id": "monet-water-lilies-agapanthus",
+  "artist": "Claude Monet",
+  "title": "Water Lilies (Agapanthus)",
+  "date": "c. 1915–26",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1960.81",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1960.81/1960.81_print.jpg"
+ },
+ {
+  "id": "cezanne-mount-sainte-victoire",
+  "artist": "Paul Cézanne",
+  "title": "Mount Sainte-Victoire",
+  "date": "c. 1904",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1958.21",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1958.21/1958.21_print.jpg"
+ },
+ {
+  "id": "corot-la-cervara-the-roman-campagna",
+  "artist": "Camille Corot",
+  "title": "La Cervara, the Roman Campagna",
+  "date": "c. 1830–31",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1963.91",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1963.91/1963.91_print.jpg"
+ },
+ {
+  "id": "courbet-panoramic-view-of-the-alps",
+  "artist": "Gustave Courbet",
+  "title": "Panoramic View of the Alps, Les Dents du Midi",
+  "date": "1877",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1964.420",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1964.420/1964.420_print.jpg"
+ },
+ {
+  "id": "eakins-the-biglin-brothers-turning-the",
+  "artist": "Thomas Eakins",
+  "title": "The Biglin Brothers Turning the Stake",
+  "date": "1873",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://clevelandart.org/art/1927.1984",
+  "licence": "CC0 (public domain)",
+  "image": "https://openaccess-cdn.clevelandart.org/1927.1984/1927.1984_print.jpg"
+ },
+ {
+  "id": "monet-the-japanese-footbridge",
+  "artist": "Claude Monet",
+  "title": "The Japanese Footbridge",
+  "date": "1899",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.74796.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/0b9cefb5-1ee4-401a-8154-8d4039191a28/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "monet-waterloo-bridge-london-at-sunset",
+  "artist": "Claude Monet",
+  "title": "Waterloo Bridge, London, at Sunset",
+  "date": "1904",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.61378.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/e5c0853d-e3ac-49c2-884e-c0ac3b0af597/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "monet-waterloo-bridge-gray-day",
+  "artist": "Claude Monet",
+  "title": "Waterloo Bridge, Gray Day",
+  "date": "1903",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46658.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/5f0f2f71-1428-4fc7-a951-0fab4fe39ffd/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "monet-the-artist-s-garden-in",
+  "artist": "Claude Monet",
+  "title": "The Artist’s Garden in Argenteuil",
+  "date": "1873",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.72138.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/4196f97b-1edb-4fae-aa9f-882afe35978b/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "monet-the-bridge-at-argenteuil",
+  "artist": "Claude Monet",
+  "title": "The Bridge at Argenteuil",
+  "date": "1874",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.61374.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/7372b15a-3830-43bf-8c41-4836619312b7/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "monet-palazzo-da-mula-venice",
+  "artist": "Claude Monet",
+  "title": "Palazzo da Mula, Venice",
+  "date": "1908",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46657.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f339a180-c87a-446b-8605-060f7b53f1a3/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "monet-banks-of-the-seine-vetheuil",
+  "artist": "Claude Monet",
+  "title": "Banks of the Seine, Vétheuil",
+  "date": "1880",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46652.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/5dd2009f-7782-43d8-9892-be5733d8f43b/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "church-niagara",
+  "artist": "Frederic Edwin Church",
+  "title": "Niagara",
+  "date": "1857",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.166436.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/4d6a4fa1-db74-4586-a753-9951bc5945a3/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "church-el-rio-de-luz-the",
+  "artist": "Frederic Edwin Church",
+  "title": "El Rio de Luz (The River of Light)",
+  "date": "1877",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.50299.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/9d96691b-10b2-44c9-8670-a642e0cd9ce2/full/4000,/0/default.jpg",
+  "trim": {
+   "left": 0.006
+  }
+ },
+ {
+  "id": "cole-the-voyage-of-life-childhood",
+  "artist": "Thomas Cole",
+  "title": "The Voyage of Life: Childhood",
+  "date": "1842",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.52450.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/5b94c264-aaea-4f4b-bbdc-5c04bfd353b4/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "cole-the-voyage-of-life-youth",
+  "artist": "Thomas Cole",
+  "title": "The Voyage of Life: Youth",
+  "date": "1842",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.52451.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/1c3a0c23-3926-4475-b9b8-59cb1d72b410/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "cole-a-view-of-the-mountain",
+  "artist": "Thomas Cole",
+  "title": "The Notch of the White Mountains",
+  "date": "1839",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.50727.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/47966446-8944-44fa-9166-be2c68bbc30a/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "turner-keelmen-heaving-in-coals-by",
+  "artist": "J. M. W. Turner",
+  "title": "Keelmen Heaving in Coals by Moonlight",
+  "date": "1835",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.1225.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/c1e33e8d-ffe4-4d20-a267-87ffcf94f7ce/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "turner-venice-the-dogana-and-san",
+  "artist": "J. M. W. Turner",
+  "title": "Venice: The Dogana and San Giorgio Maggiore",
+  "date": "1834",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.1224.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/e69c25bb-f772-4ac2-966f-2954eb420a84/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "turner-mortlake-terrace",
+  "artist": "J. M. W. Turner",
+  "title": "Mortlake Terrace",
+  "date": "1827",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.116.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/d90b641f-b6fe-4fc4-a520-69accf46513b/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "turner-approach-to-venice",
+  "artist": "J. M. W. Turner",
+  "title": "Approach to Venice",
+  "date": "1844",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.117.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/4f117b4f-4efe-4b2e-88e7-a01975003d95/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "canaletto-the-square-of-saint-mark",
+  "artist": "Canaletto",
+  "title": "The Square of Saint Mark’s, Venice",
+  "date": "1742–44",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.32588.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/c25be5bf-4592-4102-a908-17082b19542d/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "bellotto-the-fortress-of-konigstein",
+  "artist": "Bernardo Bellotto",
+  "title": "The Fortress of Königstein",
+  "date": "1756–58",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.80924.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/8b3b5c3e-0b36-4229-bbcf-645cd16126f9/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "avercamp-a-scene-on-the-ice",
+  "artist": "Hendrick Avercamp",
+  "title": "A Scene on the Ice",
+  "date": "c. 1625",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.50721.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/af3e7276-2f9f-47ab-92dd-4a79b4aa9178/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "van-gogh-farmhouse-in-provence",
+  "artist": "Vincent van Gogh",
+  "title": "Farmhouse in Provence",
+  "date": "1888",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.52178.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/51c369a2-cc20-43f6-8262-25877c4377eb/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "van-gogh-green-wheat-fields-auvers",
+  "artist": "Vincent van Gogh",
+  "title": "Green Wheat Fields, Auvers",
+  "date": "1890",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.163323.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/b479275a-4f8a-4702-83c2-9dcc4cbe60ce/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "homer-breezing-up-a-fair-wind",
+  "artist": "Winslow Homer",
+  "title": "Breezing Up (A Fair Wind)",
+  "date": "1873–76",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.30228.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/406b5d56-d196-4bb0-b2e0-5a2f6fd52d0a/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "homer-right-and-left",
+  "artist": "Winslow Homer",
+  "title": "Right and Left",
+  "date": "1909",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.39763.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/9ef2a890-2516-4f5a-bcc7-cc70a22125b5/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "sisley-flood-at-port-marly",
+  "artist": "Alfred Sisley",
+  "title": "Flood at Port-Marly",
+  "date": "1872",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.66436.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/b74f7de3-fb66-406b-80b9-3a8381097bf6/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "morisot-the-harbor-at-lorient",
+  "artist": "Berthe Morisot",
+  "title": "The Harbor at Lorient",
+  "date": "1869",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.52192.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/bf6c7c73-82e8-4ef7-8ac8-71920c8eb2b9/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "pissarro-boulevard-des-italiens-morning-sunlight",
+  "artist": "Camille Pissarro",
+  "title": "Boulevard des Italiens, Morning, Sunlight",
+  "date": "1897",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46673.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/1921981a-82c4-46ee-8cec-185aa18e2538/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "caillebotte-skiffs",
+  "artist": "Gustave Caillebotte",
+  "title": "Skiffs",
+  "date": "1877",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.66404.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/3313430c-1c8b-4b56-9563-7b20a070c6ef/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "cassatt-the-boating-party",
+  "artist": "Mary Cassatt",
+  "title": "The Boating Party",
+  "date": "1893–94",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46569.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f8b6727d-6998-4f2a-9708-8694b9c69f54/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "constable-wivenhoe-park-essex",
+  "artist": "John Constable",
+  "title": "Wivenhoe Park, Essex",
+  "date": "1816",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.1147.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/c49fa4a0-1e3a-4038-b7dd-ad9036146e73/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "constable-the-white-horse",
+  "artist": "John Constable",
+  "title": "The White Horse",
+  "date": "1818–19",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.1146.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f43020bc-c6cb-4225-9808-f95d854f5025/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "kensett-beacon-rock-newport-harbor",
+  "artist": "John Frederick Kensett",
+  "title": "Beacon Rock, Newport Harbor",
+  "date": "1857",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.42389.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/c31769b8-f5f8-41bd-b204-1e838690c219/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "heade-sunlight-and-shadow-the-newbury",
+  "artist": "Martin Johnson Heade",
+  "title": "Sunlight and Shadow: The Newbury Marshes",
+  "date": "c. 1871–75",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.126145.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/0a11bd7a-9993-4e27-939d-dc264bb2cba4/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "cropsey-autumn-on-the-hudson-river",
+  "artist": "Jasper Francis Cropsey",
+  "title": "Autumn—On the Hudson River",
+  "date": "1860",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46474.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/0253c293-4cc1-4131-89a9-f2c997aebba0/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "gifford-ruins-of-the-parthenon",
+  "artist": "Sanford Robinson Gifford",
+  "title": "Ruins of the Parthenon",
+  "date": "1880",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.121547.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/7b29c413-dd42-4cb5-a989-74ec08feb0e4/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "gifford-siout-egypt",
+  "artist": "Sanford Robinson Gifford",
+  "title": "Siout, Egypt",
+  "date": "1874",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.107525.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/aa4304ee-6168-4bde-99fd-d3416dd4b527/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "moran-the-juniata-evening",
+  "artist": "Thomas Moran",
+  "title": "The Juniata, Evening",
+  "date": "1864",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.153202.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f7429296-9105-4a8f-ad67-3388e4974ad6/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "seurat-seascape-at-port-en-bessin",
+  "artist": "Georges Seurat",
+  "title": "Seascape at Port-en-Bessin, Normandy",
+  "date": "1888",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.53139.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f395c5e5-6711-487e-8c1b-747c698d1ef9/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "cezanne-chateau-noir",
+  "artist": "Paul Cézanne",
+  "title": "Château Noir",
+  "date": "1900–04",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.45866.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/957d7147-9e54-473f-bd03-79b84d327c59/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "cezanne-montagne-sainte-victoire-from-near",
+  "artist": "Paul Cézanne",
+  "title": "Montagne Sainte-Victoire, from near Gardanne",
+  "date": "c. 1887",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.53122.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/ab3bbe10-cfa7-479b-86df-d13a476e975c/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "corot-forest-of-fontainebleau",
+  "artist": "Camille Corot",
+  "title": "Forest of Fontainebleau",
+  "date": "1834",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46584.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/5c1e9c2f-31e2-4234-801b-033610d0102c/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "corot-a-view-near-volterra",
+  "artist": "Camille Corot",
+  "title": "A View near Volterra",
+  "date": "1838",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.46586.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/b2e0595c-22b9-4b4c-a533-57a15a7ae6d0/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "degas-the-races",
+  "artist": "Edgar Degas",
+  "title": "The Races",
+  "date": "1871–72",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.1157.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/365b5dfe-d315-4c52-9fed-e68b307f9ac0/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "bierstadt-lake-lucerne",
+  "artist": "Albert Bierstadt",
+  "title": "Lake Lucerne",
+  "date": "1858",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.71503.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/5f1692b3-d8ed-4a65-a4f5-281387550c8d/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "bierstadt-buffalo-trail-the-impending-storm",
+  "artist": "Albert Bierstadt",
+  "title": "Buffalo Trail: The Impending Storm",
+  "date": "1869",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.166427.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/8681fef5-68c8-4449-9a71-4722f0bc2899/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "lane-lumber-schooners-at-evening-on",
+  "artist": "Fitz Henry Lane",
+  "title": "Lumber Schooners at Evening on Penobscot Bay",
+  "date": "1863",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.57611.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/bb495b04-4887-4089-973c-c8ee58f8aad4/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "renoir-pont-neuf-paris",
+  "artist": "Pierre-Auguste Renoir",
+  "title": "Pont Neuf, Paris",
+  "date": "1872",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.52202.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/56303f18-6101-4d5d-9b03-20b58d657afa/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "manet-the-railway",
+  "artist": "Édouard Manet",
+  "title": "The Railway",
+  "date": "1873",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.43624.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/57b84473-f6f3-4bab-ad88-344bb4d56fb7/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "whistler-battersea-reach",
+  "artist": "James McNeill Whistler",
+  "title": "Battersea Reach",
+  "date": "c. 1863",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.82416.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/ac936d8c-9ae1-491f-8848-421016c51c9b/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "sargent-en-route-pour-la-peche",
+  "artist": "John Singer Sargent",
+  "title": "Setting Out to Fish",
+  "date": "1878",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.166472.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/104fd57e-cd5f-4fa5-a31c-440dcd256ed6/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "sargent-simplon-pass",
+  "artist": "John Singer Sargent",
+  "title": "Simplon Pass",
+  "date": "1911",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.166471.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/482e9978-5e15-4947-bf8b-67275347b13d/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "seurat-the-lighthouse-at-honfleur",
+  "artist": "Georges Seurat",
+  "title": "The Lighthouse at Honfleur",
+  "date": "1886",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.61383.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/68979753-2414-4f87-9111-8f7566d54077/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "pissarro-the-louvre-afternoon-rainy-weather",
+  "artist": "Camille Pissarro",
+  "title": "The Louvre, Afternoon, Rainy Weather",
+  "date": "1900",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.195850.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f7896300-10dd-4eec-ae25-bf689ce99015/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "degas-the-dance-lesson",
+  "artist": "Edgar Degas",
+  "title": "The Dance Lesson",
+  "date": "c. 1879",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.93045.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/fd747ab9-ce9d-41d9-b8d4-9004ec37ee82/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "degas-before-the-ballet",
+  "artist": "Edgar Degas",
+  "title": "Before the Ballet",
+  "date": "1890–92",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.1158.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/45f18edb-fa34-4907-8d14-3e14098d304c/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "botticelli-the-adoration-of-the-magi",
+  "artist": "Sandro Botticelli",
+  "title": "The Adoration of the Magi",
+  "date": "c. 1478–82",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.24.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/0fd27212-b70a-4a0b-9e7c-ed0d8bbe7ebf/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "bingham-the-jolly-flatboatmen",
+  "artist": "George Caleb Bingham",
+  "title": "The Jolly Flatboatmen",
+  "date": "1846",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.75206.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/f2c2ef49-269b-4527-98d9-a2a0c09b742e/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "hicks-the-cornell-farm",
+  "artist": "Edward Hicks",
+  "title": "The Cornell Farm",
+  "date": "1848",
+  "museum": "National Gallery of Art, Washington",
+  "page": "https://www.nga.gov/collection/art-object-page.50261.html",
+  "licence": "CC0 (NGA Open Access)",
+  "image": "https://api.nga.gov/iiif/230d8d65-5bec-485e-8db6-95ce06ad2812/full/4000,/0/default.jpg"
+ },
+ {
+  "id": "van-gogh-the-starry-night",
+  "artist": "Vincent van Gogh",
+  "title": "The Starry Night",
+  "date": "1889",
+  "museum": "Museum of Modern Art, New York",
+  "page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Van Gogh - Starry Night - Google Art Project.jpg",
+  "mat": "ink"
+ },
+ {
+  "id": "van-gogh-starry-night-over-the-rhone",
+  "artist": "Vincent van Gogh",
+  "title": "Starry Night over the Rhône",
+  "date": "1888",
+  "museum": "Musée d'Orsay, Paris",
+  "page": "https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Starry Night Over the Rhone.jpg",
+  "mat": "ink"
+ },
+ {
+  "id": "van-gogh-wheatfield-with-crows",
+  "artist": "Vincent van Gogh",
+  "title": "Wheatfield with Crows",
+  "date": "1890",
+  "museum": "Van Gogh Museum, Amsterdam",
+  "page": "https://commons.wikimedia.org/wiki/File:Korenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Korenveld met kraaien - s0149V1962 - Van Gogh Museum.jpg"
+ },
+ {
+  "id": "van-gogh-almond-blossom",
+  "artist": "Vincent van Gogh",
+  "title": "Almond Blossom",
+  "date": "1890",
+  "museum": "Van Gogh Museum, Amsterdam",
+  "page": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Almond_Blossom_-_VGM_F671.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Vincent van Gogh - Almond Blossom - VGM F671.jpg"
+ },
+ {
+  "id": "van-gogh-wheat-field-with-cypresses",
+  "artist": "Vincent van Gogh",
+  "title": "Wheat Field with Cypresses",
+  "date": "1889",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Wheat_Field_with_Cypresses_MET_DT1567.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Wheat Field with Cypresses MET DT1567.jpg",
+  "trim": 0.012
+ },
+ {
+  "id": "bruegel-the-hunters-in-the-snow",
+  "artist": "Pieter Bruegel the Elder",
+  "title": "The Hunters in the Snow",
+  "date": "1565",
+  "museum": "Kunsthistorisches Museum, Vienna",
+  "page": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow_(Winter)_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Pieter Bruegel the Elder - Hunters in the Snow (Winter) - Google Art Project.jpg"
+ },
+ {
+  "id": "bruegel-the-tower-of-babel",
+  "artist": "Pieter Bruegel the Elder",
+  "title": "The Tower of Babel",
+  "date": "1563",
+  "museum": "Kunsthistorisches Museum, Vienna",
+  "page": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Pieter Bruegel the Elder - The Tower of Babel (Vienna) - Google Art Project - edited.jpg"
+ },
+ {
+  "id": "bruegel-the-harvesters",
+  "artist": "Pieter Bruegel the Elder",
+  "title": "The Harvesters",
+  "date": "1565",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder-_The_Harvesters_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Pieter Bruegel the Elder- The Harvesters - Google Art Project.jpg"
+ },
+ {
+  "id": "botticelli-the-birth-of-venus",
+  "artist": "Sandro Botticelli",
+  "title": "The Birth of Venus",
+  "date": "c. 1485",
+  "museum": "Uffizi Gallery, Florence",
+  "page": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg"
+ },
+ {
+  "id": "vermeer-view-of-delft",
+  "artist": "Johannes Vermeer",
+  "title": "View of Delft",
+  "date": "c. 1660–61",
+  "museum": "Mauritshuis, The Hague",
+  "page": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_View_of_Delft_-_92_-_Mauritshuis.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Johannes Vermeer - View of Delft - 92 - Mauritshuis.jpg"
+ },
+ {
+  "id": "rembrandt-the-night-watch",
+  "artist": "Rembrandt van Rijn",
+  "title": "The Night Watch",
+  "date": "1642",
+  "museum": "Rijksmuseum, Amsterdam",
+  "page": "https://commons.wikimedia.org/wiki/File:The_Night_Watch_-_HD.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:The Night Watch - HD.jpg",
+  "trim": 0.022
+ },
+ {
+  "id": "turner-the-fighting-temeraire",
+  "artist": "J. M. W. Turner",
+  "title": "The Fighting Temeraire",
+  "date": "1839",
+  "museum": "The National Gallery, London",
+  "page": "https://commons.wikimedia.org/wiki/File:Turner,_J._M._W._-_The_Fighting_Téméraire_tugged_to_her_last_Berth_to_be_broken.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Turner, J. M. W. - The Fighting Téméraire tugged to her last Berth to be broken.jpg"
+ },
+ {
+  "id": "turner-rain-steam-and-speed",
+  "artist": "J. M. W. Turner",
+  "title": "Rain, Steam and Speed",
+  "date": "1844",
+  "museum": "The National Gallery, London",
+  "page": "https://commons.wikimedia.org/wiki/File:Turner_-_Rain,_Steam_and_Speed_-_National_Gallery_file.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Turner - Rain, Steam and Speed - National Gallery file.jpg"
+ },
+ {
+  "id": "constable-the-hay-wain",
+  "artist": "John Constable",
+  "title": "The Hay Wain",
+  "date": "1821",
+  "museum": "The National Gallery, London",
+  "page": "https://commons.wikimedia.org/wiki/File:John_Constable_-_The_Hay_Wain_(1821).jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:John Constable - The Hay Wain (1821).jpg"
+ },
+ {
+  "id": "monet-impression-sunrise",
+  "artist": "Claude Monet",
+  "title": "Impression, Sunrise",
+  "date": "1872",
+  "museum": "Musée Marmottan Monet, Paris",
+  "page": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Monet - Impression, Sunrise.jpg"
+ },
+ {
+  "id": "monet-the-magpie",
+  "artist": "Claude Monet",
+  "title": "The Magpie",
+  "date": "1868–69",
+  "museum": "Musée d'Orsay, Paris",
+  "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Magpie_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Claude Monet - The Magpie - Google Art Project.jpg"
+ },
+ {
+  "id": "monet-poppy-field",
+  "artist": "Claude Monet",
+  "title": "Poppy Field",
+  "date": "1873",
+  "museum": "Musée d'Orsay, Paris",
+  "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Poppy_Field_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Claude Monet - Poppy Field - Google Art Project.jpg"
+ },
+ {
+  "id": "monet-garden-at-sainte-adresse",
+  "artist": "Claude Monet",
+  "title": "Garden at Sainte-Adresse",
+  "date": "1867",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Jardin_à_Sainte-Adresse.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Claude Monet - Jardin à Sainte-Adresse.jpg"
+ },
+ {
+  "id": "renoir-dance-at-le-moulin-de",
+  "artist": "Pierre-Auguste Renoir",
+  "title": "Dance at Le Moulin de la Galette",
+  "date": "1876",
+  "museum": "Musée d'Orsay, Paris",
+  "page": "https://commons.wikimedia.org/wiki/File:Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Auguste Renoir - Dance at Le Moulin de la Galette - Google Art Project.jpg"
+ },
+ {
+  "id": "renoir-luncheon-of-the-boating-party",
+  "artist": "Pierre-Auguste Renoir",
+  "title": "Luncheon of the Boating Party",
+  "date": "1880–81",
+  "museum": "The Phillips Collection, Washington",
+  "page": "https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Pierre-Auguste Renoir - Luncheon of the Boating Party - Google Art Project.jpg"
+ },
+ {
+  "id": "friedrich-the-sea-of-ice",
+  "artist": "Caspar David Friedrich",
+  "title": "The Sea of Ice",
+  "date": "1823–24",
+  "museum": "Hamburger Kunsthalle",
+  "page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_–_Das_Eismeer.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Caspar David Friedrich – Das Eismeer.jpg"
+ },
+ {
+  "id": "friedrich-the-monk-by-the-sea",
+  "artist": "Caspar David Friedrich",
+  "title": "The Monk by the Sea",
+  "date": "1808–10",
+  "museum": "Alte Nationalgalerie, Berlin",
+  "page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Der_Mönch_am_Meer_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Caspar David Friedrich - Der Mönch am Meer - Google Art Project.jpg"
+ },
+ {
+  "id": "friedrich-two-men-contemplating-the-moon",
+  "artist": "Caspar David Friedrich",
+  "title": "Two Men Contemplating the Moon",
+  "date": "c. 1825–30",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Zwei_Männer_in_Betrachtung_des_Mondes_(Metropolitan_Museum_of_Art).jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Caspar David Friedrich - Zwei Männer in Betrachtung des Mondes (Metropolitan Museum of Art).jpg",
+  "trim": {
+   "bottom": 0.017
+  }
+ },
+ {
+  "id": "aivazovsky-the-ninth-wave",
+  "artist": "Ivan Aivazovsky",
+  "title": "The Ninth Wave",
+  "date": "1850",
+  "museum": "State Russian Museum, Saint Petersburg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Hovhannes Aivazovsky - The Ninth Wave - Google Art Project.jpg"
+ },
+ {
+  "id": "rousseau-the-sleeping-gypsy",
+  "artist": "Henri Rousseau",
+  "title": "The Sleeping Gypsy",
+  "date": "1897",
+  "museum": "Museum of Modern Art, New York",
+  "page": "https://commons.wikimedia.org/wiki/File:La_Bohémienne_endormie.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:La Bohémienne endormie.jpg",
+  "mat": "ink"
+ },
+ {
+  "id": "rousseau-surprised",
+  "artist": "Henri Rousseau",
+  "title": "Surprised!",
+  "date": "1891",
+  "museum": "The National Gallery, London",
+  "page": "https://commons.wikimedia.org/wiki/File:Henri_Rousseau_-_Surprise!.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Henri Rousseau - Surprise!.jpg",
+  "mat": "forest"
+ },
+ {
+  "id": "seurat-bathers-at-asnieres",
+  "artist": "Georges Seurat",
+  "title": "Bathers at Asnières",
+  "date": "1884",
+  "museum": "The National Gallery, London",
+  "page": "https://commons.wikimedia.org/wiki/File:Baigneurs_a_Asnieres.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Baigneurs a Asnieres.jpg"
+ },
+ {
+  "id": "raphael-the-school-of-athens",
+  "artist": "Raphael",
+  "title": "The School of Athens",
+  "date": "1509–11",
+  "museum": "Vatican Museums",
+  "page": "https://commons.wikimedia.org/wiki/File:Raphael_School_of_Athens.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Raphael School of Athens.jpg"
+ },
+ {
+  "id": "repin-barge-haulers-on-the-volga",
+  "artist": "Ilya Repin",
+  "title": "Barge Haulers on the Volga",
+  "date": "1870–73",
+  "museum": "State Russian Museum, Saint Petersburg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_-_Barge_Haulers_on_the_Volga_-_Google_Art_Project.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Ilya Repin - Barge Haulers on the Volga - Google Art Project.jpg"
+ },
+ {
+  "id": "gallen-kallela-lake-keitele",
+  "artist": "Akseli Gallen-Kallela",
+  "title": "Lake Keitele",
+  "date": "1905",
+  "museum": "The National Gallery, London",
+  "page": "https://commons.wikimedia.org/wiki/File:Akseli_Gallen-Kallela_-_Lake_Keitele,_1905.JPG",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Akseli Gallen-Kallela - Lake Keitele, 1905.JPG"
+ },
+ {
+  "id": "shishkin-morning-in-a-pine-forest",
+  "artist": "Ivan Shishkin",
+  "title": "Morning in a Pine Forest",
+  "date": "1889",
+  "museum": "State Tretyakov Gallery, Moscow",
+  "page": "https://commons.wikimedia.org/wiki/File:Shishkin,_Ivan_-_Morning_in_a_Pine_Forest.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Shishkin, Ivan - Morning in a Pine Forest.jpg"
+ },
+ {
+  "id": "church-heart-of-the-andes",
+  "artist": "Frederic Edwin Church",
+  "title": "Heart of the Andes",
+  "date": "1859",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Heart_of_the_Andes_MET_DT78.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Heart of the Andes MET DT78.jpg",
+  "trim": 0.006
+ },
+ {
+  "id": "cole-the-oxbow",
+  "artist": "Thomas Cole",
+  "title": "The Oxbow",
+  "date": "1836",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Cole_Thomas_The_Oxbow_(The_Connecticut_River_near_Northampton_1836).jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Cole Thomas The Oxbow (The Connecticut River near Northampton 1836).jpg"
+ },
+ {
+  "id": "david-the-death-of-socrates",
+  "artist": "Jacques-Louis David",
+  "title": "The Death of Socrates",
+  "date": "1787",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:The_Death_of_Socrates_MET_DT40.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:The Death of Socrates MET DT40.jpg",
+  "trim": 0.006
+ },
+ {
+  "id": "bonheur-the-horse-fair",
+  "artist": "Rosa Bonheur",
+  "title": "The Horse Fair",
+  "date": "1852–55",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Rosa_Bonheur,_The_Horse_Fair,_1852–55.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Rosa Bonheur, The Horse Fair, 1852–55.jpg"
+ },
+ {
+  "id": "homer-the-gulf-stream",
+  "artist": "Winslow Homer",
+  "title": "The Gulf Stream",
+  "date": "1899",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:The_Gulf_Stream_MET_DP140858.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:The Gulf Stream MET DP140858.jpg",
+  "trim": 0.006
+ },
+ {
+  "id": "hokusai-fine-wind-clear-morning-red",
+  "artist": "Katsushika Hokusai",
+  "title": "Fine Wind, Clear Morning (Red Fuji)",
+  "date": "c. 1830–32",
+  "museum": "The Metropolitan Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:「富嶽三十六景_凱風快晴」-South_Wind,_Clear_Sky_(Gaifū_kaisei),_also_known_as_Red_Fuji,_from_the_series_Thirty-six_Views_of_Mount_Fuji_(Fugaku_sanjūrokkei)_MET_DP141062.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:「富嶽三十六景 凱風快晴」-South Wind, Clear Sky (Gaifū kaisei), also known as Red Fuji, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei) MET DP141062.jpg",
+  "trim": 0.027
+ },
+ {
+  "id": "hiroshige-shono-driving-rain",
+  "artist": "Utagawa Hiroshige",
+  "title": "Shōno: Driving Rain",
+  "date": "1833–34",
+  "museum": "The Cleveland Museum of Art",
+  "page": "https://commons.wikimedia.org/wiki/File:Clevelandart_1948.306.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Clevelandart 1948.306.jpg",
+  "trim": 0.016
+ },
+ {
+  "id": "hiroshige-kanbara-night-snow",
+  "artist": "Utagawa Hiroshige",
+  "title": "Kanbara: Night Snow",
+  "date": "1833–34",
+  "museum": "Library of Congress",
+  "page": "https://commons.wikimedia.org/wiki/File:Kanbara_LCCN2008660619.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Kanbara LCCN2008660619.jpg",
+  "trim": 0.03
+ },
+ {
+  "id": "munch-the-dance-of-life",
+  "artist": "Edvard Munch",
+  "title": "The Dance of Life",
+  "date": "1899–1900",
+  "museum": "National Museum, Oslo",
+  "page": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_The_Dance_of_Life_-_NG.M.00941_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+  "licence": "Public domain (Wikimedia Commons)",
+  "image": "File:Edvard Munch - The Dance of Life - NG.M.00941 - National Museum of Art, Architecture and Design.jpg"
+ }
+]

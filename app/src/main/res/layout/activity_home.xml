@@ -43,6 +43,27 @@
     </LinearLayout>
 
     <site.gehlot.rattan.GlassLayout
+        android:id="@+id/gallery"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="116dp"
+        android:clickable="true"
+        android:contentDescription="@string/art_mode"
+        android:focusable="true"
+        app:cornerRadius="24dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:alpha="0.92"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_gallery" />
+    </site.gehlot.rattan.GlassLayout>
+
+    <site.gehlot.rattan.GlassLayout
         android:id="@+id/settings"
         android:layout_width="48dp"
         android:layout_height="48dp"

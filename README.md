@@ -5,10 +5,10 @@ A small, quiet home screen for Android TV. It is built for one TV, a TCL 65P7K w
 ![Rattan on the TV: serif clock, Live TV and HDMI control, and the app dock with Spotify in focus](docs/home.jpg)
 
 - A still photo as the background (the whole photo, scaled to the screen, so its gold lines stay
-  fine) with smoked glass for the inputs, the settings button and the app dock. One OpenGL shader
-  draws photo and glass: the rim bends the photo, the inside is darkened and lightly frosted, the
-  edge catches the light, and a soft oval quiets the photo behind the clock. It redraws only when
-  the layout changes, never on focus.
+  fine) with smoked glass for the inputs, the Art Mode and settings buttons and the app dock. One
+  OpenGL shader draws photo and glass: the rim bends the photo, the inside is darkened and lightly
+  frosted, the edge catches the light, and a soft oval quiets the photo behind the clock. It
+  redraws only when the layout changes, never on focus.
 - Type: a large Instrument Serif clock with a letter-spaced gold date, and the focused item's name
   in italic serif above the dock.
 - Focus is one glass lens that springs from item to item, reshaping as it goes: a ring with a
@@ -19,7 +19,16 @@ A small, quiet home screen for Android TV. It is built for one TV, a TCL 65P7K w
 - Remote buttons (an accessibility service that sees key presses only): Netflix and YouTube open
   their apps, TV opens Live TV, and the clean-up button goes home and closes background apps. Apps
   that are playing (Spotify with music on) keep running. The codes are TCL's (`RemoteKeys.kt`).
-- No network access of its own: the app has no `INTERNET` permission.
+- **Gallery**, the screensaver: 128 public-domain paintings from museum collections, each in an
+  ebonised black frame with a thin gilded slip, a mat chosen for the painting (warm white for most,
+  charcoal, umber or navy for dark ones) with a bevelled window and a picture light's shadows, like
+  a Samsung Frame. A new painting every three minutes with a slow cross-fade, a small wall label
+  for twenty seconds (beside the painting, or beneath it when the mat is narrow), the same artist
+  never twice in a row, evenings a little dimmer. Any key wakes the TV.
+- **Art Mode**: the button left of settings opens the same gallery on demand; left and right step
+  through the paintings, OK shows or hides the label, Back returns home.
+- No network access of its own: the app has no `INTERNET` permission. The paintings are copied to
+  the TV over adb.
 
 ## Results on the TV
 
@@ -52,6 +61,25 @@ Both files stay out of git; without them the release APK is unsigned.
 `tools/make_wallpaper.py <photo>` turns a photo into the background (1920x1080, the TV's UI size),
 its frosted copy, the banner and the icon.
 
+## The screensaver's paintings
+
+Every picture is finished on the Mac, so the TV only decodes one JPEG at a time, straight into GPU
+memory, and cross-fades; between fades nothing is redrawn. The next picture is decoded 15 seconds
+before it is due, so every fade starts on time.
+
+```sh
+python3 -I tools/art/fetch.py    # downloads the works in tools/art/picks.json to art/masters (about 400 MB)
+python3 -I tools/art/render.py   # frames them into art/out (1920x1080 JPEGs) with catalog.json
+tools/art/push.sh                # copies them to the TV, only what changed
+python3 -I tools/art/credits.py  # rewrites docs/paintings.md from picks.json
+```
+
+`render.py --frame walnut|black|oak|white` picks the moulding (black is the default), `--only id,…`
+renders a few, `--sheet` writes contact sheets. A pick's `mat` sets its mat board (otherwise one is
+chosen from the painting's tones) and `trim` crops scan borders. `art/` stays out of git.
+Gallery is the TV's screensaver once `settings put secure screensaver_components
+site.gehlot.rattan/.ArtDream` is set.
+
 ## Install
 
 ```sh
@@ -76,7 +104,12 @@ The background photo is by Adrien Olichon on Unsplash
 (https://unsplash.com/photos/a-black-and-white-photo-of-a-wall-with-vertical-lines-SPUI_LlBivE),
 used under the Unsplash License; the home screen credits it under the dock.
 
+The paintings are in the public domain; [docs/paintings.md](docs/paintings.md) lists every one with
+its museum and the source of the image. The frame's wood grain is Poly Haven's "Wood Table 001" and
+"Oak Veneer 01" textures (CC0).
+
 Fonts: Instrument Serif (The Instrument Serif Project Authors) and Inter (The Inter Project
 Authors), both SIL Open Font License 1.1; the licence texts are in `licenses/`.
 
-The settings glyph is the Material Icons "settings" icon, Apache License 2.0.
+The settings glyph is the Material Icons "settings" icon, Apache License 2.0; the Art Mode glyph
+is drawn for Rattan.

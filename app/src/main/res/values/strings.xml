@@ -8,7 +8,13 @@
     <string name="caption_system">System</string>
     <string name="remote_keys">Rattan remote buttons</string>
     <string name="cleaned_up">Background apps closed · %1$d MB free</string>
+    <string name="art_dream">Gallery</string>
+    <string name="art_mode">Art Mode</string>
+    <string name="caption_gallery">Gallery</string>
     <string name="photo_credit">Photo  ·  Adrien Olichon  ·  Unsplash</string>
+    <string name="art_missing">No paintings on the TV yet: run tools/art/push.sh.</string>
+    <string name="art_byline">%1$s, %2$s</string>
+    <string name="art_byline_museum">%1$s, %2$s  ·  %3$s</string>
     <string name="remote_keys_description">Makes the Netflix, YouTube and TV buttons work and adds a clean-up button. Sees key presses only.</string>
 
     <!-- Apps shown first, in this order; everything else follows alphabetically. -->
