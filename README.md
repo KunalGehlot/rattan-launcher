@@ -2,6 +2,8 @@
 
 A small, quiet home screen for Android TV. It is built for one TV, a TCL 65P7K with Google TV 12.
 
+![Rattan on the TV: serif clock, Live TV and HDMI control, and the app dock with Spotify in focus](docs/home.jpg)
+
 - A still photo as the background with smoked glass for the inputs, the settings button and the
   app dock. One OpenGL shader draws photo and glass: the rim bends the photo, the inside is darkened
   and lightly frosted, the edge catches the light, and a soft oval quiets the photo behind the
@@ -17,6 +19,22 @@ A small, quiet home screen for Android TV. It is built for one TV, a TCL 65P7K w
   their apps, TV opens Live TV, and the clean-up button goes home and closes background apps. Apps
   that are playing (Spotify with music on) keep running. The codes are TCL's (`RemoteKeys.kt`).
 - No network access of its own: the app has no `INTERNET` permission.
+
+## Results on the TV
+
+Measured on the TCL 65P7K (1.8 GB RAM) on 2026-10-29, before the clean-up with the Google TV home
+screen and after it with Rattan, both after a reboot:
+
+| | Before | After |
+| --- | --- | --- |
+| Free memory | 398 MB | 809 MB |
+| Free swap (of 650 MB) | 163 MB | 404 MB |
+| Home screen memory | 97 MB (Google TV) | 25 MB (Rattan) |
+| Back to Home from Netflix | — | 0.22 s |
+| Cold start | — | 0.5–0.6 s |
+
+The glass redraws only when the layout changes (none over 20 fast focus moves); the focus lens is
+drawn by the views, which keeps it in step with the remote.
 
 ## Build
 
