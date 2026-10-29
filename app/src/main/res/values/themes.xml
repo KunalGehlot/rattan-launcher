@@ -2,7 +2,6 @@
 <resources>
     <color name="frame">#000000</color>
     <color name="text">#FFF7EE</color>
-    <color name="text_secondary">#C8FFF7EE</color>
     <color name="gold">#E2B56F</color>
 
     <style name="Theme.Rattan" parent="android:Theme.DeviceDefault.NoActionBar.Fullscreen">

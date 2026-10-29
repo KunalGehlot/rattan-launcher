@@ -111,7 +111,6 @@ private class StageRenderer(private val res: Resources, private val onFailure: (
         GLES30.glActiveTexture(GLES30.GL_TEXTURE1)
         GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, frost)
         GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, 3)
-        Log.d(TAG, "glass redrawn, $count panels")
     }
 
     /** Uploads an image and frees the Java copy right away; only the GPU keeps it. */

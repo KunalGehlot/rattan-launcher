@@ -11,15 +11,12 @@ object Type {
         private set
     lateinit var text: Typeface
         private set
-    lateinit var textStrong: Typeface
-        private set
 
     fun load(assets: AssetManager) {
         if (::display.isInitialized) return
         display = Typeface.createFromAsset(assets, "fonts/InstrumentSerif-Regular.ttf")
         displayItalic = Typeface.createFromAsset(assets, "fonts/InstrumentSerif-Italic.ttf")
-        text = inter(assets, 450)
-        textStrong = inter(assets, 600)
+        text = inter(assets, 600)
     }
 
     private fun inter(assets: AssetManager, weight: Int) =

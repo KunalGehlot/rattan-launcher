@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.ImageDecoder
 import android.graphics.drawable.BitmapDrawable
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
@@ -60,8 +61,8 @@ class HomeActivity : Activity() {
         caption = findViewById(R.id.caption)
         title = findViewById(R.id.title)
         findViewById<TextClock>(R.id.time).typeface = Type.display
-        findViewById<TextClock>(R.id.date).typeface = Type.textStrong
-        caption.typeface = Type.textStrong
+        findViewById<TextClock>(R.id.date).typeface = Type.text
+        caption.typeface = Type.text
         title.typeface = Type.displayItalic
 
         stage = StageView(this) { showPlainBackground() }
@@ -88,7 +89,11 @@ class HomeActivity : Activity() {
             addAction(Intent.ACTION_PACKAGE_CHANGED)
             addDataScheme("package")
         }
-        registerReceiver(packageChanges, filter, RECEIVER_NOT_EXPORTED)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(packageChanges, filter, RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(packageChanges, filter)
+        }
     }
 
     override fun onDestroy() {
@@ -196,9 +201,15 @@ class HomeActivity : Activity() {
         last.nextFocusRightId = last.id
     }
 
-    /** Every app in the dock: balanced rows of at most seven, tiles sized to fill the width exactly. */
+    /**
+     * Every app in the dock: balanced rows of at most seven, tiles sized to fill the width exactly.
+     * Apps change while home is showing (TCL updates its packages at boot), so if focus was in the
+     * dock it returns to the same app, or the first one.
+     */
     private fun reloadApps() {
         appsStale = false
+        val focusedApp = if (appGrid.hasFocus()) currentFocus?.getTag(R.id.app_package) as? String else null
+        val hadFocus = appGrid.hasFocus()
         appGrid.removeAllViews()
         val apps = Apps.load(this)
         if (apps.isEmpty()) return
@@ -221,6 +232,20 @@ class HomeActivity : Activity() {
                 if (r > 0) topMargin = gap
             })
         }
+        if (hadFocus) {
+            val again = appGrid.findViewWithTagRecursively(focusedApp)
+            if (again != null) appGrid.post { again.requestFocus() } else focusFirstApp()
+        }
+    }
+
+    private fun ViewGroup.findViewWithTagRecursively(packageName: String?): View? {
+        if (packageName == null) return null
+        for (i in 0 until childCount) {
+            val child = getChildAt(i)
+            if (child.getTag(R.id.app_package) == packageName) return child
+            if (child is ViewGroup) child.findViewWithTagRecursively(packageName)?.let { return it }
+        }
+        return null
     }
 
     private fun appTile(app: AppEntry, index: Int, count: Int): View {
@@ -230,6 +255,7 @@ class HomeActivity : Activity() {
             isClickable = true
             contentDescription = app.label
             tag = LensSpot(GROUP_APPS, radius, ring = true, caption = getString(R.string.caption_apps, index + 1, count))
+            setTag(R.id.app_package, app.packageName)
             outlineProvider = roundOutline(radius)
             clipToOutline = true
             val banner = app.banner
@@ -275,7 +301,7 @@ class HomeActivity : Activity() {
         this.text = text
         setTextColor(getColor(R.color.text))
         setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
-        typeface = Type.textStrong
+        typeface = Type.text
         letterSpacing = 0.02f
         gravity = Gravity.CENTER
     }
