@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rattan</string>
+    <string name="settings">Settings</string>
+
+    <!-- Apps shown first, in this order; everything else follows alphabetically. -->
+    <string-array name="pinned_packages" translatable="false">
+        <item>com.netflix.ninja</item>
+        <item>com.google.android.youtube.tv</item>
+        <item>com.amazon.amazonvideo.livingroom</item>
+        <item>com.apple.atve.androidtv.appletv</item>
+        <item>de.swr.avp.ard.tv</item>
+        <item>com.zdf.android.mediathek</item>
+        <item>de.tagesschau</item>
+        <item>com.spotify.tv.android</item>
+        <item>com.graymatrix.did</item>
+        <item>com.sonyliv</item>
+        <item>com.fancode.tv</item>
+        <item>org.videolan.vlc</item>
+        <item>com.android.vending</item>
+    </string-array>
+
+    <!-- Launchable system panels that the home screen covers itself (inputs, settings) or hides. -->
+    <string-array name="hidden_packages" translatable="false">
+        <item>com.android.tv.settings</item>
+        <item>com.spocky.projengmenu</item>
+        <item>com.tcl.dashboard</item>
+        <item>com.tcl.partnercustomizer</item>
+        <item>com.tcl.suspension</item>
+        <item>com.tcl.t_solo</item>
+        <item>com.tcl.tv</item>
+    </string-array>
+</resources>

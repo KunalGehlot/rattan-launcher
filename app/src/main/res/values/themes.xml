@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="frame">#211D1A</color>
+    <color name="text">#FFF7EE</color>
+    <color name="text_secondary">#C8FFF7EE</color>
+
+    <style name="Theme.Rattan" parent="android:Theme.DeviceDefault.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/frame</item>
+        <item name="android:windowShowWallpaper">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- Focus is drawn by the views themselves; no grey system highlight. -->
+        <item name="android:defaultFocusHighlightEnabled">false</item>
+        <item name="android:colorAccent">#E8CBA6</item>
+    </style>
+</resources>
