@@ -3,6 +3,9 @@
     <string name="app_name">Rattan</string>
     <string name="settings">Settings</string>
     <string name="live_tv">Live TV</string>
+    <string name="caption_apps">Apps   %1$d / %2$d</string>
+    <string name="caption_input">Watch</string>
+    <string name="caption_system">System</string>
 
     <!-- Apps shown first, in this order; everything else follows alphabetically. -->
     <string-array name="pinned_packages" translatable="false">

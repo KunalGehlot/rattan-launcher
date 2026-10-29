@@ -27,15 +27,23 @@ class StageView(context: Context, private val onFailure: () -> Unit) : GLSurface
         renderMode = RENDERMODE_WHEN_DIRTY
     }
 
-    /** [panels] holds, per panel: centre x, centre y (GL, y up), half width, half height, corner radius. */
-    fun show(panels: FloatArray) {
-        queueEvent { renderer.panels = panels }
+    /**
+     * [panels] holds, per panel: centre x, centre y (GL, y up), half width, half height, corner radius.
+     * [scrim] is a soft dark oval (centre x, centre y, radius x, radius y) that quiets the lines
+     * behind the clock.
+     */
+    fun show(panels: FloatArray, scrim: FloatArray) {
+        queueEvent {
+            renderer.scrim = scrim
+            renderer.panels = panels
+        }
         requestRender()
     }
 }
 
 private class StageRenderer(private val res: Resources, private val onFailure: () -> Unit) : GLSurfaceView.Renderer {
     @Volatile var panels: FloatArray? = null
+    @Volatile var scrim: FloatArray = FloatArray(4)
 
     private var program = 0
     private var scene = 0
@@ -48,6 +56,7 @@ private class StageRenderer(private val res: Resources, private val onFailure: (
     private var uCount = 0
     private var uRect = 0
     private var uLook = 0
+    private var uScrim = 0
 
     override fun onSurfaceCreated(unused: GL10?, config: EGLConfig?) {
         program = link(VERTEX, FRAGMENT)
@@ -61,6 +70,7 @@ private class StageRenderer(private val res: Resources, private val onFailure: (
         uCount = GLES30.glGetUniformLocation(program, "uCount")
         uRect = GLES30.glGetUniformLocation(program, "uRect")
         uLook = GLES30.glGetUniformLocation(program, "uLook")
+        uScrim = GLES30.glGetUniformLocation(program, "uScrim")
         GLES30.glUseProgram(program)
         GLES30.glUniform1i(GLES30.glGetUniformLocation(program, "uScene"), 0)
         GLES30.glUniform1i(GLES30.glGetUniformLocation(program, "uFrost"), 1)
@@ -94,11 +104,14 @@ private class StageRenderer(private val res: Resources, private val onFailure: (
         GLES30.glUniform1i(uCount, count)
         GLES30.glUniform4fv(uRect, MAX_PANELS, rects, 0)
         GLES30.glUniform4fv(uLook, MAX_PANELS, looks, 0)
+        val s = scrim
+        GLES30.glUniform4f(uScrim, s[0], s[1], maxOf(s[2], 1f), maxOf(s[3], 1f))
         GLES30.glActiveTexture(GLES30.GL_TEXTURE0)
         GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, scene)
         GLES30.glActiveTexture(GLES30.GL_TEXTURE1)
         GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, frost)
         GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, 3)
+        Log.d(TAG, "glass redrawn, $count panels")
     }
 
     /** Uploads an image and frees the Java copy right away; only the GPU keeps it. */
@@ -157,9 +170,10 @@ void main() {
 }
 """
 
-        // Each panel is a rounded rectangle of glass. Near its rim the surface curves away, so what
-        // lies behind is bent outward (the lens), split slightly by colour, and catches the light.
-        // The flat middle shows the background lightly frosted. Outside, a soft shadow falls below.
+        // Each panel is a rounded rectangle of smoked glass. Near its rim the surface curves away, so
+        // what lies behind is bent outward (the lens), split slightly by colour, and catches the light.
+        // Inside, the background shows darkened and lightly frosted. Outside, a soft shadow falls below.
+        // Behind the clock a dark oval quiets the lines, and the corners fall off like a lens vignette.
         const val FRAGMENT = """#version 300 es
 precision highp float;
 uniform sampler2D uScene;
@@ -168,6 +182,7 @@ uniform vec2 uSize;
 uniform int uCount;
 uniform vec4 uRect[12];  // centre (GL pixels, y up), half size
 uniform vec4 uLook[12];  // corner radius
+uniform vec4 uScrim;     // centre (GL pixels), radii
 out vec4 outColor;
 
 const vec2 LIGHT = vec2(-0.6, 0.8);
@@ -183,10 +198,15 @@ void main() {
     vec2 px = gl_FragCoord.xy;
     vec3 color = texture(uScene, uv(px)).rgb;
 
+    float oval = length((px - uScrim.xy) / uScrim.zw);
+    color *= 1.0 - 0.78 * (1.0 - smoothstep(0.3, 1.0, oval));
+    vec2 v = (px / uSize - 0.5) * vec2(1.0, 0.85);
+    color *= 1.0 - 0.5 * smoothstep(0.28, 0.78, length(v));
+
     float shade = 0.0;
     for (int i = 0; i < uCount; i++) {
-        float d = box(px - uRect[i].xy + vec2(0.0, 12.0), uRect[i].zw, uLook[i].x);
-        shade = max(shade, 0.6 * (1.0 - smoothstep(-8.0, 34.0, d)));
+        float d = box(px - uRect[i].xy + vec2(0.0, 14.0), uRect[i].zw, uLook[i].x);
+        shade = max(shade, 0.7 * (1.0 - smoothstep(-10.0, 40.0, d)));
     }
     color *= 1.0 - shade;
 
@@ -206,22 +226,21 @@ void main() {
         float t = clamp(depth / min(radius, 26.0), 0.0, 1.0);
         float edge = (1.0 - t) * (1.0 - t);
 
-        vec2 sp = c + p * 0.97 + n * edge * 34.0;
-        float split = edge * 3.0;
+        vec2 sp = c + p * 0.97 + n * edge * 30.0;
+        float split = edge * 2.5;
         vec3 sharp = vec3(texture(uScene, uv(sp + n * split)).r,
                           texture(uScene, uv(sp)).g,
                           texture(uScene, uv(sp - n * split)).b);
         vec3 soft = texture(uFrost, uv(sp)).rgb;
-        vec3 g = mix(sharp, soft, 0.45 * t);
+        vec3 g = mix(sharp, soft, 0.55 * t);
         float luma = dot(g, vec3(0.2126, 0.7152, 0.0722));
-        g = mix(vec3(luma), g, 1.25) * 1.18 + 0.02;
-        g = mix(g, vec3(1.0), 0.05);
+        g = mix(vec3(luma), g, 1.1) * 0.58 + 0.014;
 
         float facing = dot(n, normalize(LIGHT));
-        float rim = 1.0 - smoothstep(0.0, 1.8, depth);
-        float glint = edge * (0.32 * max(facing, 0.0) + 0.16 * max(-facing, 0.0));
-        g += (rim * (0.30 + 0.45 * abs(facing)) + glint) * 0.85;
-        g += 0.04 * smoothstep(-hs.y, hs.y, p.y);
+        float rim = 1.0 - smoothstep(0.0, 1.6, depth);
+        float glint = edge * (0.22 * max(facing, 0.0) + 0.10 * max(-facing, 0.0));
+        g += rim * (0.22 + 0.42 * abs(facing)) + glint;
+        g += 0.03 * smoothstep(-hs.y, hs.y, p.y);
 
         color = mix(color, g, 1.0 - smoothstep(-0.75, 0.75, d));
     }

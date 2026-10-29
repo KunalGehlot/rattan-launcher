@@ -6,11 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.ImageDecoder
-import android.graphics.Typeface
-import android.content.res.ColorStateList
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
@@ -21,22 +17,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextClock
 import android.widget.TextView
+import kotlin.math.ceil
 
 class HomeActivity : Activity() {
 
     private lateinit var root: FrameLayout
     private lateinit var stage: StageView
+    private lateinit var lens: FocusLens
+    private lateinit var clock: View
     private lateinit var appGrid: LinearLayout
     private lateinit var inputRow: LinearLayout
+    private lateinit var caption: TextView
+    private lateinit var title: TextView
     private var appsStale = true
     private var resumed = false
     private val density by lazy { resources.displayMetrics.density }
     private val location = IntArray(2)
     private var shownPanels = FloatArray(0)
+    private var shownScrim = FloatArray(0)
 
     private val packageChanges = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -47,26 +51,35 @@ class HomeActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Type.load(assets)
         setContentView(R.layout.activity_home)
         root = findViewById(R.id.root)
+        clock = findViewById(R.id.clock)
         appGrid = findViewById(R.id.app_grid)
-        // Room at the sides, so a grown tile in the first or last column stays inside the grid.
-        appGrid.setPadding(dp(EDGE), 0, dp(EDGE), 0)
-        appGrid.clipToPadding = false
         inputRow = findViewById(R.id.input_row)
+        caption = findViewById(R.id.caption)
+        title = findViewById(R.id.title)
+        findViewById<TextClock>(R.id.time).typeface = Type.display
+        findViewById<TextClock>(R.id.date).typeface = Type.textStrong
+        caption.typeface = Type.textStrong
+        title.typeface = Type.displayItalic
+
         stage = StageView(this) { showPlainBackground() }
         root.addView(stage, 0, FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT))
-        root.viewTreeObserver.addOnGlobalLayoutListener { syncGlass() }
+        lens = FocusLens(this)
+        root.addView(lens, FrameLayout.LayoutParams(0, 0))
+        root.viewTreeObserver.addOnGlobalLayoutListener {
+            syncGlass()
+            lens.refresh()
+        }
+        root.viewTreeObserver.addOnGlobalFocusChangeListener { old, new -> focusMoved(old, new) }
 
         findViewById<GlassLayout>(R.id.settings).apply {
-            val icon = getChildAt(0) as ImageView
-            icon.isDuplicateParentStateEnabled = true
-            icon.imageTintList = focusColors()
-            focusPill(this)
+            tag = LensSpot(GROUP_SYSTEM, cornerRadius, ring = false, caption = getString(R.string.caption_system))
             setOnClickListener { start(context, Intent(Settings.ACTION_SETTINGS)) }
         }
-        if (LiveTv.available(this)) inputRow.addView(chip(getString(R.string.live_tv)) { LiveTv.open(this) })
-        Inputs.load(this).forEach { input -> inputRow.addView(chip(input.label) { Inputs.open(this, input) }) }
+        if (LiveTv.available(this)) inputRow.addView(segment(getString(R.string.live_tv)) { LiveTv.open(this) })
+        Inputs.load(this).forEach { input -> inputRow.addView(segment(input.label) { Inputs.open(this, input) }) }
         keepFocusInRow(inputRow)
 
         val filter = IntentFilter().apply {
@@ -117,12 +130,26 @@ class HomeActivity : Activity() {
     }
 
     private fun focusFirstApp() {
-        appGrid.post { firstTile()?.requestFocus() }
+        appGrid.post { (appGrid.getChildAt(0) as? ViewGroup)?.getChildAt(0)?.requestFocus() }
     }
 
-    private fun firstTile(): View? = (appGrid.getChildAt(0) as? ViewGroup)?.getChildAt(0)
+    /** The lens glides within a group and reappears between groups; the title names what has focus. */
+    private fun focusMoved(old: View?, new: View?) {
+        val spot = new?.tag as? LensSpot
+        val glide = spot != null && (old?.tag as? LensSpot)?.group == spot.group
+        lens.follow(new, glide)
+        val name = new?.contentDescription
+        if (spot == null || name == null || name == title.text) return
+        caption.text = spot.caption
+        title.text = name
+        for (line in listOf(caption, title)) {
+            line.alpha = 0f
+            line.translationX = -10 * density
+            line.animate().alpha(1f).translationX(0f).setDuration(280).setInterpolator(EASE).start()
+        }
+    }
 
-    /** Tells the stage where every glass panel is. */
+    /** Tells the stage where every glass panel is, and where the clock sits for its dark backdrop. */
     private fun syncGlass() {
         val panels = ArrayList<GlassLayout>()
         collectGlass(root, panels)
@@ -138,10 +165,18 @@ class HomeActivity : Activity() {
             data[i * 5 + 3] = halfH
             data[i * 5 + 4] = panel.cornerRadius
         }
-        // Layout passes happen often; the glass only redraws when a panel really moved.
-        if (data.contentEquals(shownPanels)) return
+        clock.getLocationInWindow(location)
+        val scrim = floatArrayOf(
+            location[0] + clock.width / 2f,
+            height - (location[1] + clock.height / 2f),
+            clock.width * 0.95f,
+            clock.height * 1.1f,
+        )
+        // Layout passes happen often; the glass only redraws when something really moved.
+        if (data.contentEquals(shownPanels) && scrim.contentEquals(shownScrim)) return
         shownPanels = data
-        stage.show(data)
+        shownScrim = scrim
+        stage.show(data, scrim)
     }
 
     private fun collectGlass(view: View, into: MutableList<GlassLayout>) {
@@ -161,135 +196,98 @@ class HomeActivity : Activity() {
         last.nextFocusRightId = last.id
     }
 
-    /** Up to seven apps per row, so the dock holds every app without scrolling. */
+    /** Every app in the dock: balanced rows of at most seven, tiles sized to fill the width exactly. */
     private fun reloadApps() {
         appsStale = false
         appGrid.removeAllViews()
-        Apps.load(this).chunked(COLUMNS).forEachIndexed { r, apps ->
-            val row = LinearLayout(this).apply {
-                orientation = LinearLayout.HORIZONTAL
-                clipChildren = false
-                clipToPadding = false
-            }
-            apps.forEachIndexed { c, app ->
-                row.addView(appTile(app), LinearLayout.LayoutParams(dp(TILE_W + 2 * RING), dp(TILE_H + 2 * RING)).apply {
-                    if (c > 0) marginStart = dp(GAP - 2 * RING)
+        val apps = Apps.load(this)
+        if (apps.isEmpty()) return
+        val rows = ceil(apps.size / MAX_COLUMNS.toDouble()).toInt()
+        val columns = ceil(apps.size / rows.toDouble()).toInt()
+        val gap = dp(GAP)
+        val inner = resources.displayMetrics.widthPixels - 2 * dp(MARGIN) - 2 * dp(DOCK_PADDING)
+        val w = (inner - gap * (columns - 1)) / columns
+        val h = w * 9 / 16
+        apps.chunked(columns).forEachIndexed { r, rowApps ->
+            val row = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+            rowApps.forEachIndexed { c, app ->
+                val index = r * columns + c
+                row.addView(appTile(app, index, apps.size), LinearLayout.LayoutParams(w, h).apply {
+                    if (c > 0) marginStart = gap
                 })
             }
-            // Room above and below, so a grown tile stays inside its row.
-            row.setPadding(0, dp(ROOM), 0, dp(ROOM))
             keepFocusInRow(row)
             appGrid.addView(row, LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
-                if (r > 0) topMargin = dp(GAP - 2 * RING - 2 * ROOM)
+                if (r > 0) topMargin = gap
             })
         }
     }
 
-    /**
-     * A banner with a few dp of room around it, where the focus ring is drawn. The ring is a fixed
-     * foreground that shows only while focused, so moving focus is a repaint, never a new layout.
-     */
-    private fun appTile(app: AppEntry): View {
+    private fun appTile(app: AppEntry, index: Int, count: Int): View {
         val radius = 10 * density
-        val ring = dp(RING)
-        val face = FrameLayout(this).apply {
-            outlineProvider = roundOutline(radius)
-            clipToOutline = true
-        }
-        val banner = app.banner
-        if (banner != null) {
-            face.addView(ImageView(this).apply {
-                setImageDrawable(banner)
-                scaleType = ImageView.ScaleType.CENTER_CROP
-            })
-        } else {
-            // No banner: the app's icon and name on a dark pane.
-            face.setBackgroundColor(0x8C000000.toInt())
-            face.addView(LinearLayout(this).apply {
-                orientation = LinearLayout.VERTICAL
-                gravity = Gravity.CENTER
-                addView(ImageView(context).apply { setImageDrawable(app.icon) }, LinearLayout.LayoutParams(dp(28), dp(28)))
-                addView(label(app.label, 10f).apply {
-                    maxLines = 1
-                    ellipsize = TextUtils.TruncateAt.END
-                    setPadding(dp(6), dp(4), dp(6), 0)
-                })
-            })
-        }
-        val tile = FrameLayout(this).apply {
+        return FrameLayout(this).apply {
             isFocusable = true
             isClickable = true
             contentDescription = app.label
-            // The shadow follows the banner, not the ring around it.
-            outlineProvider = roundOutline(radius, ring)
-            addView(face, FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply { setMargins(ring, ring, ring, ring) })
-            foreground = StateListDrawable().apply {
-                addState(intArrayOf(android.R.attr.state_focused), FocusRing(radius + ring, density))
+            tag = LensSpot(GROUP_APPS, radius, ring = true, caption = getString(R.string.caption_apps, index + 1, count))
+            outlineProvider = roundOutline(radius)
+            clipToOutline = true
+            val banner = app.banner
+            if (banner != null) {
+                addView(ImageView(context).apply {
+                    setImageDrawable(banner)
+                    scaleType = ImageView.ScaleType.CENTER_CROP
+                })
+            } else {
+                // No banner: the app's icon and name on a dark pane.
+                setBackgroundColor(0x8C000000.toInt())
+                addView(LinearLayout(context).apply {
+                    orientation = LinearLayout.VERTICAL
+                    gravity = Gravity.CENTER
+                    addView(ImageView(context).apply { setImageDrawable(app.icon) }, LinearLayout.LayoutParams(dp(28), dp(28)))
+                    addView(label(app.label, 10f).apply {
+                        maxLines = 1
+                        ellipsize = TextUtils.TruncateAt.END
+                        setPadding(dp(6), dp(4), dp(6), 0)
+                    })
+                })
+            }
+            setOnClickListener { Apps.launch(context, app) }
+            setOnLongClickListener {
+                Apps.openDetails(context, app)
+                true
             }
         }
-        Focus.lift(tile, 1.06f)
-        tile.setOnClickListener { Apps.launch(this, app) }
-        tile.setOnLongClickListener {
-            Apps.openDetails(this, app)
-            true
-        }
-        return tile
     }
 
-    private fun chip(text: CharSequence, onClick: () -> Unit): View = GlassLayout(this).apply {
-        cornerRadius = 20 * density
+    /** One segment of the inputs control; the lens is its only focus state. */
+    private fun segment(text: CharSequence, onClick: () -> Unit): View = label(text, 13f).apply {
         isFocusable = true
         isClickable = true
-        setPadding(dp(22), 0, dp(22), 0)
-        layoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, dp(40)).apply { marginStart = dp(6); marginEnd = dp(6) }
-        val label = label(text, 15f).apply {
-            isDuplicateParentStateEnabled = true
-            setTextColor(focusColors())
-        }
-        addView(label, FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, Gravity.CENTER))
-        // Dark text on the light pill needs no shadow; light text on glass does.
-        focusPill(this) { focused -> label.setShadowLayer(if (focused) 0f else 6 * density, 0f, density, SHADOW) }
+        contentDescription = text
+        tag = LensSpot(GROUP_INPUTS, 20 * density, ring = false, caption = getString(R.string.caption_input))
+        setPadding(dp(18), 0, dp(18), 0)
+        layoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, MATCH_PARENT)
         setOnClickListener { onClick() }
     }
-
-    /**
-     * Focus on a glass control: it turns into a solid light pill, lifted a little, with dark content.
-     * The pill is the view's own background, so it follows the remote without delay; the glass
-     * behind it never changes.
-     */
-    private fun focusPill(view: GlassLayout, onChange: (Boolean) -> Unit = {}) {
-        view.background = StateListDrawable().apply {
-            addState(intArrayOf(android.R.attr.state_focused), GradientDrawable().apply {
-                setColor(getColor(R.color.text))
-                cornerRadius = view.cornerRadius
-            })
-        }
-        view.outlineProvider = roundOutline(view.cornerRadius)
-        Focus.lift(view, 1.06f, onChange)
-    }
-
-    private fun focusColors() = ColorStateList(
-        arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()),
-        intArrayOf(getColor(R.color.ink), getColor(R.color.text)),
-    )
 
     private fun label(text: CharSequence, sp: Float) = TextView(this).apply {
         this.text = text
         setTextColor(getColor(R.color.text))
         setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        typeface = Type.textStrong
+        letterSpacing = 0.02f
         gravity = Gravity.CENTER
-        setShadowLayer(6 * density, 0f, density, SHADOW)
     }
 
     private companion object {
-        const val COLUMNS = 7
-        const val SHADOW = 0xA6000000.toInt()
-        const val TILE_W = 106
-        const val TILE_H = 60
-        const val GAP = 14
-        const val RING = 4
-        const val ROOM = 3
-        const val EDGE = 5
+        const val GROUP_APPS = "apps"
+        const val GROUP_INPUTS = "inputs"
+        const val GROUP_SYSTEM = "system"
+        const val MAX_COLUMNS = 7
+        const val MARGIN = 56
+        const val DOCK_PADDING = 20
+        const val GAP = 16
+        val EASE = DecelerateInterpolator(2f)
     }
 }

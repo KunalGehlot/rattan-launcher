@@ -3,7 +3,7 @@
     <color name="frame">#000000</color>
     <color name="text">#FFF7EE</color>
     <color name="text_secondary">#C8FFF7EE</color>
-    <color name="ink">#1B1712</color>
+    <color name="gold">#E2B56F</color>
 
     <style name="Theme.Rattan" parent="android:Theme.DeviceDefault.NoActionBar.Fullscreen">
         <item name="android:windowBackground">@color/frame</item>
