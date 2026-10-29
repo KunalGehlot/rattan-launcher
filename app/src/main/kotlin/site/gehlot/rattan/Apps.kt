@@ -43,6 +43,16 @@ object Apps {
             )
     }
 
+    /** Package names of the launchable TV apps, without loading any banners. */
+    fun packages(context: Context): List<String> {
+        val query = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER)
+        return context.packageManager.queryIntentActivities(query, 0).map { it.activityInfo.packageName }.distinct()
+    }
+
+    fun launchPackage(context: Context, packageName: String) {
+        context.packageManager.getLeanbackLaunchIntentForPackage(packageName)?.let { start(context, it) }
+    }
+
     fun launch(context: Context, app: AppEntry) {
         val intent = context.packageManager.getLeanbackLaunchIntentForPackage(app.packageName)
             ?: Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER).setComponent(app.component)

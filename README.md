@@ -13,6 +13,9 @@ A small, quiet home screen for Android TV. It is built for one TV, a TCL 65P7K w
   inputs and reappears when moving between them. Nothing pulses.
 - Every app fits in the dock (balanced rows of at most seven); focus always starts on the first app.
 - Live TV opens the FRITZ!Box's cable channel list (`http://192.168.178.1/dvb/m3u/tvhd.m3u`) in VLC.
+- Remote buttons (an accessibility service that sees key presses only): Netflix and YouTube open
+  their apps, TV opens Live TV, and the clean-up button goes home and closes background apps. Apps
+  that are playing (Spotify with music on) keep running. The codes are TCL's (`RemoteKeys.kt`).
 - No network access of its own: the app has no `INTERNET` permission.
 
 ## Build
@@ -30,12 +33,15 @@ Both files stay out of git; without them the release APK is unsigned.
 `tools/make_wallpaper.py <photo>` turns a photo into the background (1920x1080, the TV's UI size),
 its frosted copy, the banner and the icon.
 
-## Install and make it the home screen
+## Install
 
 ```sh
-adb install -r app/build/outputs/apk/release/app-release.apk
-adb shell cmd package set-home-activity site.gehlot.rattan/.HomeActivity
+tools/install.sh            # TV at 192.168.178.59:5555, or pass ip:port
 ```
+
+It builds, installs, compiles ahead of time, grants TCL's `APP_AUTO_START` (without it TCL's
+TclAppBoot refuses to start the remote-button service), re-binds that service (an install unbinds
+it and the system leaves it so) and makes Rattan the home screen.
 
 Back to the Google TV home screen (disabled on this TV, not removed):
 

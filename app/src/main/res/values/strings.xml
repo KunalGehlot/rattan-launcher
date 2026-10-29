@@ -6,6 +6,9 @@
     <string name="caption_apps">Apps   %1$d / %2$d</string>
     <string name="caption_input">Watch</string>
     <string name="caption_system">System</string>
+    <string name="remote_keys">Rattan remote buttons</string>
+    <string name="cleaned_up">Background apps closed · %1$d MB free</string>
+    <string name="remote_keys_description">Makes the Netflix, YouTube and TV buttons work and adds a clean-up button. Sees key presses only.</string>
 
     <!-- Apps shown first, in this order; everything else follows alphabetically. -->
     <string-array name="pinned_packages" translatable="false">
