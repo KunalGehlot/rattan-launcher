@@ -98,14 +98,17 @@
             android:layout_marginBottom="16dp"
             android:orientation="horizontal" />
 
-        <!-- Banners have 10 dp corners: the dock's 32 dp minus the 22 dp from its edge (18 dp padding
-             plus the 4 dp ring space around each tile), so the curves nest. -->
+        <!-- Banners have 10 dp corners: the dock's 32 dp minus the 22 dp from its edge (padding, grid
+             and row room, plus the 4 dp ring space around each tile), so the curves nest. -->
         <site.gehlot.rattan.GlassLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:padding="18dp"
+            android:paddingStart="13dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="13dp"
+            android:paddingBottom="15dp"
             app:cornerRadius="32dp">
 
             <LinearLayout

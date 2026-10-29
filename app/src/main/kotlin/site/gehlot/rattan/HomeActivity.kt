@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.graphics.ImageDecoder
 import android.graphics.Typeface
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
@@ -33,6 +34,7 @@ class HomeActivity : Activity() {
     private var resumed = false
     private val density by lazy { resources.displayMetrics.density }
     private val location = IntArray(2)
+    private var shownPanels = FloatArray(0)
 
     private val packageChanges = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -46,6 +48,9 @@ class HomeActivity : Activity() {
         setContentView(R.layout.activity_home)
         root = findViewById(R.id.root)
         appGrid = findViewById(R.id.app_grid)
+        // Room at the sides, so a grown tile in the first or last column stays inside the grid.
+        appGrid.setPadding(dp(EDGE), 0, dp(EDGE), 0)
+        appGrid.clipToPadding = false
         inputRow = findViewById(R.id.input_row)
         stage = StageView(this) { showPlainBackground() }
         root.addView(stage, 0, FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT))
@@ -57,6 +62,7 @@ class HomeActivity : Activity() {
         }
         if (LiveTv.available(this)) inputRow.addView(chip(getString(R.string.live_tv)) { LiveTv.open(this) })
         Inputs.load(this).forEach { input -> inputRow.addView(chip(input.label) { Inputs.open(this, input) }) }
+        keepFocusInRow(inputRow)
 
         val filter = IntentFilter().apply {
             addAction(Intent.ACTION_PACKAGE_ADDED)
@@ -128,6 +134,9 @@ class HomeActivity : Activity() {
             data[i * 6 + 4] = panel.cornerRadius
             data[i * 6 + 5] = if (panel.isFocused) 1f else 0f
         }
+        // Layout passes happen often; the glass only redraws when a panel really moved or changed focus.
+        if (data.contentEquals(shownPanels)) return
+        shownPanels = data
         stage.show(data)
     }
 
@@ -138,6 +147,16 @@ class HomeActivity : Activity() {
 
     private fun dp(value: Int) = (value * density).toInt()
 
+    /** Left on a row's first item and right on its last stay put, instead of jumping to another row. */
+    private fun keepFocusInRow(row: ViewGroup) {
+        if (row.childCount == 0) return
+        val first = row.getChildAt(0)
+        val last = row.getChildAt(row.childCount - 1)
+        for (end in listOf(first, last)) if (end.id == View.NO_ID) end.id = View.generateViewId()
+        first.nextFocusLeftId = first.id
+        last.nextFocusRightId = last.id
+    }
+
     /** Up to seven apps per row, so the dock holds every app without scrolling. */
     private fun reloadApps() {
         appsStale = false
@@ -146,19 +165,26 @@ class HomeActivity : Activity() {
             val row = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
                 clipChildren = false
+                clipToPadding = false
             }
             apps.forEachIndexed { c, app ->
                 row.addView(appTile(app), LinearLayout.LayoutParams(dp(TILE_W + 2 * RING), dp(TILE_H + 2 * RING)).apply {
                     if (c > 0) marginStart = dp(GAP - 2 * RING)
                 })
             }
+            // Room above and below, so a grown tile stays inside its row.
+            row.setPadding(0, dp(ROOM), 0, dp(ROOM))
+            keepFocusInRow(row)
             appGrid.addView(row, LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
-                if (r > 0) topMargin = dp(GAP - 2 * RING)
+                if (r > 0) topMargin = dp(GAP - 2 * RING - 2 * ROOM)
             })
         }
     }
 
-    /** A banner with a few dp of room around it, where the focus ring is drawn. */
+    /**
+     * A banner with a few dp of room around it, where the focus ring is drawn. The ring is a fixed
+     * foreground that shows only while focused, so moving focus is a repaint, never a new layout.
+     */
     private fun appTile(app: AppEntry): View {
         val radius = 10 * density
         val ring = dp(RING)
@@ -190,13 +216,14 @@ class HomeActivity : Activity() {
             isFocusable = true
             isClickable = true
             contentDescription = app.label
-            setPadding(ring, ring, ring, ring)
             // The shadow follows the banner, not the ring around it.
             outlineProvider = roundOutline(radius, ring)
-            addView(face)
+            addView(face, FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply { setMargins(ring, ring, ring, ring) })
+            foreground = StateListDrawable().apply {
+                addState(intArrayOf(android.R.attr.state_focused), FocusRing(radius + ring, density))
+            }
         }
-        val focusRing = FocusRing(radius + ring, density)
-        Focus.lift(tile, 1.06f) { focused -> tile.foreground = if (focused) focusRing else null }
+        Focus.lift(tile, 1.06f)
         tile.setOnClickListener { Apps.launch(this, app) }
         tile.setOnLongClickListener {
             Apps.openDetails(this, app)
@@ -231,5 +258,7 @@ class HomeActivity : Activity() {
         const val TILE_H = 60
         const val GAP = 14
         const val RING = 4
+        const val ROOM = 3
+        const val EDGE = 5
     }
 }
