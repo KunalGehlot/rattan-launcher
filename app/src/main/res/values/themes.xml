@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="frame">#211D1A</color>
+    <color name="frame">#000000</color>
     <color name="text">#FFF7EE</color>
     <color name="text_secondary">#C8FFF7EE</color>
 

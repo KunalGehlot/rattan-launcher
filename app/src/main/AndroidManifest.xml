@@ -15,6 +15,7 @@
             <action android:name="android.media.tv.TvInputService" />
         </intent>
         <package android:name="com.tcl.tv" />
+        <package android:name="org.videolan.vlc" />
     </queries>
 
     <application
