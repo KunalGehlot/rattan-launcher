@@ -75,6 +75,7 @@ class HomeActivity : Activity() {
         }
         root.viewTreeObserver.addOnGlobalFocusChangeListener { old, new -> focusMoved(old, new) }
 
+        findViewById<TextView>(R.id.credit).typeface = Type.text
         findViewById<GlassLayout>(R.id.settings).apply {
             tag = LensSpot(GROUP_SYSTEM, cornerRadius, ring = false, caption = getString(R.string.caption_system))
             setOnClickListener { start(context, Intent(Settings.ACTION_SETTINGS)) }

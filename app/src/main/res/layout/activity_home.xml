@@ -144,4 +144,20 @@
                 android:orientation="vertical" />
         </site.gehlot.rattan.GlassLayout>
     </LinearLayout>
+
+    <!-- The background photo's credit, small, under the dock's right edge. -->
+    <TextView
+        android:id="@+id/credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.4"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.22"
+        android:text="@string/photo_credit"
+        android:textAllCaps="true"
+        android:textColor="@color/text"
+        android:textSize="7sp" />
 </FrameLayout>

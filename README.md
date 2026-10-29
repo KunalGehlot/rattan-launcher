@@ -4,10 +4,11 @@ A small, quiet home screen for Android TV. It is built for one TV, a TCL 65P7K w
 
 ![Rattan on the TV: serif clock, Live TV and HDMI control, and the app dock with Spotify in focus](docs/home.jpg)
 
-- A still photo as the background with smoked glass for the inputs, the settings button and the
-  app dock. One OpenGL shader draws photo and glass: the rim bends the photo, the inside is darkened
-  and lightly frosted, the edge catches the light, and a soft oval quiets the photo behind the
-  clock. It redraws only when the layout changes, never on focus.
+- A still photo as the background (the whole photo, scaled to the screen, so its gold lines stay
+  fine) with smoked glass for the inputs, the settings button and the app dock. One OpenGL shader
+  draws photo and glass: the rim bends the photo, the inside is darkened and lightly frosted, the
+  edge catches the light, and a soft oval quiets the photo behind the clock. It redraws only when
+  the layout changes, never on focus.
 - Type: a large Instrument Serif clock with a letter-spaced gold date, and the focused item's name
   in italic serif above the dock.
 - Focus is one glass lens that springs from item to item, reshaping as it goes: a ring with a
@@ -72,7 +73,8 @@ adb shell cmd package set-home-activity com.google.android.apps.tv.launcherx/.ho
 ## Credits
 
 The background photo is by Adrien Olichon on Unsplash
-(https://unsplash.com/photos/LMKuqUWW0P0), used under the Unsplash License.
+(https://unsplash.com/photos/a-black-and-white-photo-of-a-wall-with-vertical-lines-SPUI_LlBivE),
+used under the Unsplash License; the home screen credits it under the dock.
 
 Fonts: Instrument Serif (The Instrument Serif Project Authors) and Inter (The Inter Project
 Authors), both SIL Open Font License 1.1; the licence texts are in `licenses/`.
