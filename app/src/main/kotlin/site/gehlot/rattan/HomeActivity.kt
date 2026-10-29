@@ -7,7 +7,9 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.ImageDecoder
 import android.graphics.Typeface
+import android.content.res.ColorStateList
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.provider.Settings
@@ -56,8 +58,11 @@ class HomeActivity : Activity() {
         root.addView(stage, 0, FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT))
         root.viewTreeObserver.addOnGlobalLayoutListener { syncGlass() }
 
-        findViewById<View>(R.id.settings).apply {
-            setOnFocusChangeListener { _, _ -> syncGlass() }
+        findViewById<GlassLayout>(R.id.settings).apply {
+            val icon = getChildAt(0) as ImageView
+            icon.isDuplicateParentStateEnabled = true
+            icon.imageTintList = focusColors()
+            focusPill(this)
             setOnClickListener { start(context, Intent(Settings.ACTION_SETTINGS)) }
         }
         if (LiveTv.available(this)) inputRow.addView(chip(getString(R.string.live_tv)) { LiveTv.open(this) })
@@ -117,24 +122,23 @@ class HomeActivity : Activity() {
 
     private fun firstTile(): View? = (appGrid.getChildAt(0) as? ViewGroup)?.getChildAt(0)
 
-    /** Tells the stage where every glass panel is and which one has focus. */
+    /** Tells the stage where every glass panel is. */
     private fun syncGlass() {
         val panels = ArrayList<GlassLayout>()
         collectGlass(root, panels)
         val height = stage.height.toFloat()
-        val data = FloatArray(panels.size * 6)
+        val data = FloatArray(panels.size * 5)
         panels.forEachIndexed { i, panel ->
             panel.getLocationInWindow(location)
             val halfW = panel.width / 2f
             val halfH = panel.height / 2f
-            data[i * 6] = location[0] + halfW
-            data[i * 6 + 1] = height - (location[1] + halfH)
-            data[i * 6 + 2] = halfW
-            data[i * 6 + 3] = halfH
-            data[i * 6 + 4] = panel.cornerRadius
-            data[i * 6 + 5] = if (panel.isFocused) 1f else 0f
+            data[i * 5] = location[0] + halfW
+            data[i * 5 + 1] = height - (location[1] + halfH)
+            data[i * 5 + 2] = halfW
+            data[i * 5 + 3] = halfH
+            data[i * 5 + 4] = panel.cornerRadius
         }
-        // Layout passes happen often; the glass only redraws when a panel really moved or changed focus.
+        // Layout passes happen often; the glass only redraws when a panel really moved.
         if (data.contentEquals(shownPanels)) return
         shownPanels = data
         stage.show(data)
@@ -238,10 +242,36 @@ class HomeActivity : Activity() {
         isClickable = true
         setPadding(dp(22), 0, dp(22), 0)
         layoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, dp(40)).apply { marginStart = dp(6); marginEnd = dp(6) }
-        addView(label(text, 15f), FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, Gravity.CENTER))
-        setOnFocusChangeListener { _, _ -> syncGlass() }
+        val label = label(text, 15f).apply {
+            isDuplicateParentStateEnabled = true
+            setTextColor(focusColors())
+        }
+        addView(label, FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT, Gravity.CENTER))
+        // Dark text on the light pill needs no shadow; light text on glass does.
+        focusPill(this) { focused -> label.setShadowLayer(if (focused) 0f else 6 * density, 0f, density, SHADOW) }
         setOnClickListener { onClick() }
     }
+
+    /**
+     * Focus on a glass control: it turns into a solid light pill, lifted a little, with dark content.
+     * The pill is the view's own background, so it follows the remote without delay; the glass
+     * behind it never changes.
+     */
+    private fun focusPill(view: GlassLayout, onChange: (Boolean) -> Unit = {}) {
+        view.background = StateListDrawable().apply {
+            addState(intArrayOf(android.R.attr.state_focused), GradientDrawable().apply {
+                setColor(getColor(R.color.text))
+                cornerRadius = view.cornerRadius
+            })
+        }
+        view.outlineProvider = roundOutline(view.cornerRadius)
+        Focus.lift(view, 1.06f, onChange)
+    }
+
+    private fun focusColors() = ColorStateList(
+        arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()),
+        intArrayOf(getColor(R.color.ink), getColor(R.color.text)),
+    )
 
     private fun label(text: CharSequence, sp: Float) = TextView(this).apply {
         this.text = text
@@ -249,11 +279,12 @@ class HomeActivity : Activity() {
         setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
         typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         gravity = Gravity.CENTER
-        setShadowLayer(6 * density, 0f, density, 0xA6000000.toInt())
+        setShadowLayer(6 * density, 0f, density, SHADOW)
     }
 
     private companion object {
         const val COLUMNS = 7
+        const val SHADOW = 0xA6000000.toInt()
         const val TILE_W = 106
         const val TILE_H = 60
         const val GAP = 14

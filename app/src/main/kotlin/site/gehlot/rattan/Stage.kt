@@ -12,7 +12,8 @@ import javax.microedition.khronos.opengles.GL10
 
 /**
  * The layer behind all views: the background photo and every glass panel, drawn by one shader.
- * It renders only when the panels change (layout or focus), so a still home screen costs nothing.
+ * It renders only when the panels change (layout), so a still home screen costs nothing. Focus is
+ * shown by the views on top, which keeps it in step with the remote.
  */
 class StageView(context: Context, private val onFailure: () -> Unit) : GLSurfaceView(context) {
     private val renderer = StageRenderer(context.resources) { post(onFailure) }
@@ -26,7 +27,7 @@ class StageView(context: Context, private val onFailure: () -> Unit) : GLSurface
         renderMode = RENDERMODE_WHEN_DIRTY
     }
 
-    /** [panels] holds, per panel: centre x, centre y (GL, y up), half width, half height, radius, focus. */
+    /** [panels] holds, per panel: centre x, centre y (GL, y up), half width, half height, corner radius. */
     fun show(panels: FloatArray) {
         queueEvent { renderer.panels = panels }
         requestRender()
@@ -83,11 +84,10 @@ private class StageRenderer(private val res: Resources, private val onFailure: (
             GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT)
             return
         }
-        val count = minOf(current.size / 6, MAX_PANELS)
+        val count = minOf(current.size / 5, MAX_PANELS)
         for (i in 0 until count) {
-            System.arraycopy(current, i * 6, rects, i * 4, 4)
-            looks[i * 4] = current[i * 6 + 4]
-            looks[i * 4 + 1] = current[i * 6 + 5]
+            System.arraycopy(current, i * 5, rects, i * 4, 4)
+            looks[i * 4] = current[i * 5 + 4]
         }
         GLES30.glUseProgram(program)
         GLES30.glUniform2f(uSize, width, height)
@@ -167,7 +167,7 @@ uniform sampler2D uFrost;
 uniform vec2 uSize;
 uniform int uCount;
 uniform vec4 uRect[12];  // centre (GL pixels, y up), half size
-uniform vec4 uLook[12];  // corner radius, focus 0..1
+uniform vec4 uLook[12];  // corner radius
 out vec4 outColor;
 
 const vec2 LIGHT = vec2(-0.6, 0.8);
@@ -194,7 +194,6 @@ void main() {
         vec2 c = uRect[i].xy;
         vec2 hs = uRect[i].zw;
         float radius = uLook[i].x;
-        float focus = uLook[i].y;
         vec2 p = px - c;
         float d = box(p, hs, radius);
         if (d > 1.0) continue;
@@ -216,12 +215,12 @@ void main() {
         vec3 g = mix(sharp, soft, 0.45 * t);
         float luma = dot(g, vec3(0.2126, 0.7152, 0.0722));
         g = mix(vec3(luma), g, 1.25) * 1.18 + 0.02;
-        g = mix(g, vec3(1.0), 0.05 + 0.24 * focus);
+        g = mix(g, vec3(1.0), 0.05);
 
         float facing = dot(n, normalize(LIGHT));
         float rim = 1.0 - smoothstep(0.0, 1.8, depth);
         float glint = edge * (0.32 * max(facing, 0.0) + 0.16 * max(-facing, 0.0));
-        g += (rim * (0.30 + 0.45 * abs(facing)) + glint) * (0.85 + 1.2 * focus);
+        g += (rim * (0.30 + 0.45 * abs(facing)) + glint) * 0.85;
         g += 0.04 * smoothstep(-hs.y, hs.y, p.y);
 
         color = mix(color, g, 1.0 - smoothstep(-0.75, 0.75, d));

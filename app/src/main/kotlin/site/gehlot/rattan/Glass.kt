@@ -22,7 +22,7 @@ fun roundOutline(radius: Float, inset: Int = 0) = object : ViewOutlineProvider()
 
 /**
  * Marks where a glass panel goes. It draws nothing itself: the stage behind the views renders the
- * glass at this view's position, with this corner radius, brighter while it has focus.
+ * glass at this view's position, with this corner radius.
  */
 class GlassLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     var cornerRadius: Float = 0f
