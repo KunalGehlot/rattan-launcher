@@ -20,7 +20,7 @@ MASTERS = ROOT / "art" / "masters"
 TEXTURES = ROOT / "art" / "textures"
 # AIC's image server sits behind a bot check that lets browser user agents through.
 BROWSER = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36"
-POLITE = "RattanArtFetch/1.0 (https://gehlot.site; personal screensaver)"
+POLITE = "RattanArtFetch/1.0 (https://github.com/KunalGehlot/rattan-launcher)"
 WOODS = ["wood_table_001", "oak_veneer_01"]
 
 
