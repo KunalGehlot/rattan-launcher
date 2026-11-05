@@ -41,8 +41,8 @@ and right step through the paintings, OK shows or hides the label, Back returns 
 **Light on the TV.** All the framing is done ahead of time on a computer (`tools/art/render.py`),
 so the TV only decodes one JPEG at a time, straight into GPU memory, and cross-fades. Between
 fades nothing is redrawn. The next painting is decoded 15 seconds before it is due, so every fade
-starts on time. Gallery added about 1 MB to Rattan's memory on the TV. The app has no `INTERNET`
-permission; the paintings are copied to the TV once.
+starts on time. Gallery added about 1 MB to Rattan's memory on the TV. Nothing is loaded from the
+network; the paintings are copied to the TV once.
 
 The full list of paintings, with every museum and image source, is in
 [docs/paintings.md](docs/paintings.md).
@@ -61,9 +61,12 @@ The full list of paintings, with every museum and image source, is in
   gold glow around app banners, a clear pane over controls. Nothing pulses.
 - Every app fits in the dock (balanced rows of at most seven); focus always starts on the first app.
 - HDMI inputs and Live TV as buttons of their own.
-- Remote buttons (an accessibility service that sees key presses only): Netflix and YouTube open
-  their apps, TV opens Live TV, and the clean-up button goes home and closes background apps. Apps
-  that are playing (Spotify with music on) keep running.
+- Remote buttons (an accessibility service that sees key presses only): Netflix, YouTube and
+  Prime Video open their apps, TV opens Live TV, and the clean-up button pauses what is playing,
+  goes home and closes the apps. With network debugging on, it force-stops the media apps through
+  the TV's own ADB on 127.0.0.1 (`Adb.kt`; the only use of the `INTERNET` permission), so even a
+  paused Spotify closes; the first press asks you to allow Rattan's key on the TV. Without it,
+  apps that keep a media service running (Spotify, even paused) stay open.
 
 ### Results on the TV
 
@@ -109,8 +112,9 @@ put the noted value back with the same `settings put` line.
 tools/install.sh <tv-ip>:5555
 ```
 
-It builds, installs, compiles ahead of time, grants TCL's `APP_AUTO_START` (without it TCL's
-TclAppBoot refuses to start the remote-button service), re-binds that service (an install unbinds
+It builds, installs, compiles ahead of time, grants TCL's auto-start app-op (`AUTO_START`
+since TCL's Android 14 update, `APP_AUTO_START` before; without it TCL's TclAppBoot refuses to
+start the remote-button service), re-binds that service (an install unbinds
 it and the system leaves it so) and makes Rattan the home screen.
 
 Back to the Google TV home screen (if you disabled it):

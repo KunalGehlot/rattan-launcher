@@ -4,7 +4,9 @@
     <uses-feature android:name="android.software.leanback" android:required="true" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
-    <!-- No INTERNET permission: nothing on the home screen is loaded from the network. -->
+    <!-- Nothing is loaded from the network. INTERNET is only for the TV's own ADB on 127.0.0.1,
+         which the clean-up button uses to force-stop media apps (Adb.kt). -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- Closing background apps on the clean-up button. -->
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
