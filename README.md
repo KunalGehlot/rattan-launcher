@@ -62,11 +62,11 @@ The full list of paintings, with every museum and image source, is in
 - Every app fits in the dock (balanced rows of at most seven); focus always starts on the first app.
 - HDMI inputs and Live TV as buttons of their own.
 - Remote buttons (an accessibility service that sees key presses only): Netflix, YouTube and
-  Prime Video open their apps, TV opens Live TV, and the clean-up button pauses what is playing,
-  goes home and closes the apps. With network debugging on, it force-stops the media apps through
-  the TV's own ADB on 127.0.0.1 (`Adb.kt`; the only use of the `INTERNET` permission), so even a
-  paused Spotify closes; the first press asks you to allow Rattan's key on the TV. Without it,
-  apps that keep a media service running (Spotify, even paused) stay open.
+  Prime Video open their apps, Disney+ opens Spotify, TV opens Live TV, and the clean-up button
+  pauses what is playing, goes home and closes the apps. With network debugging on, it force-stops
+  the media apps through the TV's own ADB on 127.0.0.1 (`Adb.kt`; the only use of the `INTERNET`
+  permission), so even a paused Spotify closes; the first press asks you to allow Rattan's key on
+  the TV. Without it, apps that keep a media service running (Spotify, even paused) stay open.
 
 ### Results on the TV
 

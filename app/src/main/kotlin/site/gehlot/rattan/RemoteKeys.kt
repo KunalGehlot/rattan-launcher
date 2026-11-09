@@ -7,6 +7,7 @@ import android.content.Intent
 import android.media.AudioManager
 import android.os.Handler
 import android.os.Looper
+import android.view.InputDevice
 import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import android.widget.Toast
@@ -21,7 +22,11 @@ class RemoteKeys : AccessibilityService() {
         val action: (() -> Unit) = when (event.keyCode) {
             KEY_NETFLIX -> { { Apps.launchPackage(this, NETFLIX) } }
             KEY_YOUTUBE -> { { Apps.launchPackage(this, YOUTUBE) } }
+            // A game controller's button 3 is left alone; only the remote's means YouTube.
+            KeyEvent.KEYCODE_BUTTON_3 -> if (event.isFromSource(InputDevice.SOURCE_GAMEPAD)) return false
+                else { { Apps.launchPackage(this, YOUTUBE) } }
             KEY_PRIME_VIDEO -> { { Apps.launchPackage(this, PRIME_VIDEO) } }
+            KEY_DISNEY_PLUS -> { { Apps.launchPackage(this, SPOTIFY) } }
             KEY_TV -> { { LiveTv.open(this) } }
             KEY_CLEAN_UP -> { { Cleanup.run(this) } }
             else -> return false
@@ -37,14 +42,19 @@ class RemoteKeys : AccessibilityService() {
     private companion object {
         // TCL's own key codes on the BT_RC833A remote, read from it on 2026-10-29.
         const val KEY_NETFLIX = 4062
+        // Read on 2026-11-09: TCL's key map now sends the YouTube button as KEYCODE_BUTTON_3 (190).
         const val KEY_YOUTUBE = 4065
         // Read on 2026-11-05: since TCL's Android 14 update, TCL hands this key to the Google TV home.
         const val KEY_PRIME_VIDEO = 4099
+        // Read on 2026-11-09: TCL sends this key to a Play Store page for Disney+, which this TV
+        // doesn't have; the button opens Spotify instead.
+        const val KEY_DISNEY_PLUS = 4141
         const val KEY_TV = 4057
         const val KEY_CLEAN_UP = 4020
         const val NETFLIX = "com.netflix.ninja"
         const val YOUTUBE = "com.google.android.youtube.tv"
         const val PRIME_VIDEO = "com.amazon.amazonvideo.livingroom"
+        const val SPOTIFY = "com.spotify.tv.android"
     }
 }
 

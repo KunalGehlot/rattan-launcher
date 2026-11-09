@@ -23,5 +23,5 @@ adb -s "$TV" shell "
   settings put secure accessibility_enabled 1
   cmd package set-home-activity $PKG/.HomeActivity >/dev/null
   sleep 3
-  dumpsys accessibility | grep -q 'Bound services:{Service\[label=Rattan' && echo 'remote buttons: bound' || echo 'remote buttons: NOT bound'
+  dumpsys accessibility | grep -qE 'Bound services:.*(Rattan|RemoteKeys)' && echo 'remote buttons: bound' || echo 'remote buttons: NOT bound'
 "
