@@ -129,7 +129,7 @@ adb shell cmd package set-home-activity com.google.android.apps.tv.launcherx/.ho
 
 A few things are set for the TV and home network it was built for. Change them for yours:
 
-- The remote buttons use TCL's key codes (`RemoteKeys.kt`).
+- The remote buttons use TCL's key codes, and the Disney+ button opens Spotify (`RemoteKeys.kt`).
 - HDMI inputs open through TCL's live-TV app (`Inputs.kt`).
 - Live TV plays a FRITZ!Box's cable channel list in VLC; the playlist address is `PLAYLIST` in
   `Inputs.kt`. The button only appears when VLC is installed.
